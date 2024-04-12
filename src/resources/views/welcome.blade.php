@@ -5,7 +5,7 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            <title>Site de don d'objets</title>
+            <title>Donation</title>
 
             <!-- Fonts -->
             <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,7 +43,7 @@
 
         <body>
             <!-- Navbar : lg/xl -->
-<header class="header sticky top-0 flex items-center justify-between px-16 p-4 border-b-2 border-[#BD5814]">
+<header class="header static top-0 flex items-center justify-between px-16 p-4 border-b-2 border-[#BD5814]">
     <!-- logo -->
     <h1 class="pl-24 w-3/12 text-[#001524] font-semibold font-Roboto text-5xl">
         <a href="#">
@@ -98,93 +98,116 @@ numbness. Promise that you will contribute to the society by charity.
 
     <div class="pb-10 overflow-hidden md:p-10 lg:p-0 sm:pb-0">
       <img id="heroImg1" class="transition-all duration-300 ease-in-out hover:scale-105 lg:w-full sm:mx-auto sm:w-4/6 sm:pb-12 lg:pb-0" *
-      src="{{ asset('image/epic2.jpg') }}" alt="Awesome hero page image" width="500" height="488"/>
+      src="{{ asset('image/home.jpg') }}" alt="Awesome hero page image" width="500" height="488"/>
     </div>
   </div>
 
   <!--Section categories-->
-<!-- source: https://redpixelthemes.com/ -->
-
 <div class="container relative z-40 mx-auto mt-12">
-    <h2 class="mb-8 text-3xl font-extrabold leading-tight text-gray-900">Catégories</h2>
+    <div class="relative z-20 text-center">
+        <h2 class="mb-8  lg:text-5xl md:text-2xl font-extrabold leading-tight text-[#001524]">
+            Categories :
+          </h2>
 
-    <div class="flex flex-wrap justify-center mx-auto lg:w-full md:w-5/6 xl:shadow-small-blue">
+    </div>
+    <div class="flex flex-wrap justify-center mx-auto lg:w-full md:w-5/6 xl:shadow-small-red">
 
-        <a href="#" class="block w-1/2  text-center border lg:w-1/4 ">
+        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
             <div>
-                <img src="{{ asset('image/clothes.svg') }}" class="block mx-auto ">
+                <img src="{{ asset('image/cat7.jpg') }}" class="block mx-auto">
 
-                <p class="pt-4 text-sm font-medium capitalize font-body text-green-900 lg:text-lg md:text-base md:pt-6">
+                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
                     Vêtements
                 </p>
             </div>
         </a>
 
-        <a href="#" class="block w-1/2  text-center border lg:w-1/4">
-            <div>
-                <img src="{{ asset('image/food2.svg') }}" class="block mx-auto">
+                        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
 
-                <p class="pt-4 text-sm font-medium capitalize font-body text-green-900 lg:text-lg md:text-base md:pt-6">
+
+            <div>
+                <img src="{{ asset('image/food.jpg') }}" class="block mx-auto">
+
+                                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
+
                     Alimentaire
                 </p>
             </div>
         </a>
 
-        <a href="#" class="block w-1/2  text-center border lg:w-1/4">
-            <div>
-                <img src="{{ asset('image/home.svg') }}" class="block mx-auto">
+                        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
 
-                <p class="pt-4 text-sm font-medium capitalize font-body text-green-900 lg:text-lg md:text-base md:pt-6">
+
+            <div>
+                <img src="{{ asset('image/cat9.jpg') }}" class="block mx-auto">
+
+                                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
+
                     Meubles
                 </p>
             </div>
         </a>
 
-        <a href="#" class="block w-1/2  text-center border lg:w-1/4">
-            <div>
-                <img src="{{ asset('image/electro.svg') }}" class="block mx-auto">
+                        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
 
-                <p class="pt-4 text-sm font-medium capitalize font-body text-green-900 lg:text-lg md:text-base md:pt-6">
+
+            <div>
+                <img src="{{ asset('image/cat6.jpg') }}" class="block mx-auto">
+
+                                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
+
                     Électroménager
                 </p>
             </div>
         </a>
 
-        <a href="#" class="block w-1/2  text-center border lg:w-1/4">
-            <div>
-                <img src="{{ asset('image/Puericulture.svg') }}" class="block mx-auto">
+                        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
 
-                <p class="pt-4 text-sm font-medium capitalize font-body text-green-900 lg:text-lg md:text-base md:pt-6">
+
+            <div>
+                <img src="{{ asset('image/cat5.jpg') }}" class="block mx-auto">
+
+                                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
+
                     Puériculture
                 </p>
             </div>
         </a>
 
-        <a href="#" class="block w-1/2  text-center border lg:w-1/4">
-            <div>
-                <img src="{{ asset('image/media.svg') }}" class="block mx-auto">
+                        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
 
-                <p class="pt-4 text-sm font-medium capitalize font-body text-green-900 lg:text-lg md:text-base md:pt-6">
+
+            <div>
+                <img src="{{ asset('image/cat2.jpg') }}" class="block mx-auto">
+
+                                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
+
                     Multimédia et High tech
                 </p>
             </div>
         </a>
 
-        <a href="#" class="block w-1/2  text-center border lg:w-1/4">
-            <div>
-                <img src="{{ asset('image/hand.svg') }}" class="block mx-auto">
+                        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
 
-                <p class="pt-4 text-sm font-medium capitalize font-body text-green-900 lg:text-lg md:text-base md:pt-6">
+
+            <div>
+                <img src="{{ asset('image/cat4.jpg') }}" class="block mx-auto ">
+
+                                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
+
                    Matériel spécialisé
                 </p>
             </div>
         </a>
 
-        <a href="#" class="block w-1/2  text-center border lg:w-1/4">
-            <div>
-                <img src="{{ asset('image/book.svg') }}" class="block mx-auto w-50 h-50">
+                        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
 
-                <p class="pt-4 text-sm font-medium capitalize font-body text-green-900 lg:text-lg md:text-base md:pt-6">
+
+            <div>
+                <img src="{{ asset('image/cat1.jpg') }}" class="block mx-auto w-50 h-50">
+
+                                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
+
                    Loisirs, jeux et culture
                 </p>
             </div>
@@ -195,99 +218,64 @@ numbness. Promise that you will contribute to the society by charity.
 </div>
 <!-- Section dons -->
 
- <section class="h-screen w-screen p-8">
-    <h1 class="text-center font-bold text-2xl ">Responsive Grid Layout </h1>
 
-    <div class="grid justify-center md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7 my-10">
-        <!-- Card 1 -->
-        <div class="bg-white rounded-lg border shadow-md max-w-xs md:max-w-none overflow-hidden">
-            <img class="h-56 lg:h-60 w-full object-cover" src="{{ asset('image/don1.jpg') }}" alt="" />
-            <div class="p-3">
-                <span class="text-sm text-primary">November 19, 2022</span>
-                <h3 class="font-semibold text-xl leading-6 text-gray-700 my-2">
-                International Women's Day 2022: Date, history, significance, theme this year
-                </h3>
-                <p class="paragraph-normal text-gray-600">
-                Happy Women's Day 2022: Read on to know all about the history and significance...
-                </p>
-                <a class="mt-3 block" href="#">Read More >></a>
-            </div>
-        </div>
+<div class="max-w-screen-3xl mx-auto p-5 sm:p-10 md:p-16">
+    <div class="relative z-20 text-center">
+        <h2 class="mb-8  lg:text-3xl md:text-2xl font-extrabold leading-tight text-[#001524]">
+            What are you looking for?
+          </h2>
+          <p class="px-6 pt-3 text-sm text-[#001524] lg:text-lg md:text-base md:px-0 font-body m-4">
+            Check out our offerings for different types of ........
+          </p>
 
-        <!-- Card 2 -->
-        <div class="bg-white rounded-lg border shadow-md max-w-xs md:max-w-none overflow-hidden">
-            <img class="h-56 lg:h-60 w-full object-cover" src="{{ asset('image/tv.jpg') }}" alt="" />
-            <div class="p-3">
-                <span class="text-sm text-primary">November 19, 2022</span>
-                <h3 class="font-semibold text-xl leading-6 text-gray-700 my-2">
-                International Women's Day 2022: Date, history, significance, theme this year
-                </h3>
-                <p class="paragraph-normal text-gray-600">
-                Happy Women's Day 2022: Read on to know all about the history and significance...
-                </p>
-                <a class="mt-3 block" href="#">Read More >></a>
-            </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="bg-white rounded-lg border shadow-md max-w-xs md:max-w-none overflow-hidden">
-            <img class="h-56 lg:h-60 w-full object-cover" src="{{ asset('image/don2.jpg') }}" alt="" />
-            <div class="p-3">
-                <span class="text-sm text-primary">November 19, 2022</span>
-                <h3 class="font-semibold text-xl leading-6 text-gray-700 my-2">
-                International Women's Day 2022: Date, history, significance, theme this year
-                </h3>
-                <p class="paragraph-normal text-gray-600">
-                Happy Women's Day 2022: Read on to know all about the history and significance...
-                </p>
-                <a class="mt-3 block" href="#">Read More >></a>
-            </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="bg-white rounded-lg border shadow-md max-w-xs md:max-w-none overflow-hidden">
-            <img class="h-56 lg:h-60 w-full object-cover" src="{{ asset('image/don3.jpg') }}" alt="" />
-            <div class="p-3">
-                <span class="text-sm text-primary">November 19, 2022</span>
-                <h3 class="font-semibold text-xl leading-6 text-gray-700 my-2">
-                International Women's Day 2022: Date, history, significance, theme this year
-                </h3>
-                <p class="paragraph-normal text-gray-600">
-                Happy Women's Day 2022: Read on to know all about the history and significance...
-                </p>
-                <a class="mt-3 block" href="#">Read More >></a>
-            </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="bg-white rounded-lg border shadow-md max-w-xs md:max-w-none overflow-hidden">
-            <img class="h-56 lg:h-60 w-full object-cover" src="{{ asset('image/don4.jpg') }}" alt="" />
-            <div class="p-3">
-                <span class="text-sm text-primary">November 19, 2022</span>
-                <h3 class="font-semibold text-xl leading-6 text-gray-700 my-2">
-                International Women's Day 2022: Date, history, significance, theme this year
-                </h3>
-                <p class="paragraph-normal text-gray-600">
-                Happy Women's Day 2022: Read on to know all about the history and significance...
-                </p>
-                <a class="mt-3 block" href="#">Read More >></a>
-            </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="bg-white rounded-lg border shadow-md max-w-xs md:max-w-none overflow-hidden">
-            <img class="h-56 lg:h-60 w-full object-cover" src="{{ asset('image/don4.jpg') }}" alt="" />
-
-            <div class="p-3">
-                <span class="text-sm text-primary">November 19, 2022</span>
-                <h3 class="font-semibold text-xl leading-6 text-gray-700 my-2">
-                International Women's Day 2022: Date, history, significance, theme this year
-                </h3>
-                <p class="paragraph-normal text-gray-600">
-                Happy Women's Day 2022: Read on to know all about the history and significance...
-                </p>
-                <a class="mt-3 block" href="#">Read More >></a>
-            </div>
-        </div>
     </div>
-</section>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
+        <div class=" shadow-md rounded-xl ">
+            <!--Image and etat-->
+            <div class="relative">
+                <!--image -->
+                    <img class="w-full"
+                        src="{{ asset('image/wow.jpg') }}"
+                        alt="donnation">
+                        <div
+                        class=" absolute bottom-0 top-0 right-0 left-0
+                         opacity-25 ">
+                    </div>
+                    <!--Etat -->
+                    <div
+                        class="absolute bottom-8 left-0 bg-white px-4 py-2 font-bold text-[#001524] text-sm rounded-r-lg">
+                        Exclusivité
+                    </div>
+            </div>
+            <!--end Image -->
+            <!--title and descp-->
+            <div class="px-6 py-4">
+                     <p class="font-semibold text-xl text-[#001524] inline-block hover:text-[#28A5B9] transition duration-500 ease-in-out">Lorem ipsum dolor sit</a>
+                <p class="text-gray-900 text-sm">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea facere esse consectetur natus, aliquam error quam minima voluptatem cupiditate provident atque nobis nihil inventore praesentium ipsa dolorum molestiae dolorem nisi?
+                </p>
+            </div>
+            <!--Category and location -->
+            <div class="flex  items-center justify-between">
+                <span class="py-2 px-4
+                  focus:outline-none text-md font-semibold text-[#C62CAB] inline-block">Puériculture</span>
+                <span
+                class="py-2 px-4 text-sm font-regular text-gray-900 mr-1 flex flex-row justify-between items-center">
+                    <svg class="w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />  <circle cx="12" cy="10" r="3" /></svg>
+                    <span class="ml-1 font-semiblod text-md">Safi</span></span>
+            </div>
+            <!-- end Category and location -->
+        </div>
+        <!--end Card-->
+
+    </div>
+</div>
+
+    <footer class="bg-[#2292A3] text-white py-4">
+        <div class="container mx-auto text-center">
+            <p> &copy; 2024 D<i class="fa-solid fa-heart fa-xs" style="color: #D00000;"></i>NATION. All rights reserved.
+        </div>
+    </footer>
+
