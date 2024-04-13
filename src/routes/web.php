@@ -1,6 +1,6 @@
 <?php
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\SessionController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*

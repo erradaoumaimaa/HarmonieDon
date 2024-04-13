@@ -43,11 +43,11 @@
 
         <body>
             <!-- Navbar : lg/xl -->
-<header class="header static top-0 flex items-center justify-between px-16 p-4 border-b-2 border-[#BD5814]">
+<header class="header static top-0 flex items-center justify-between px-16 p-4 border-b-2 border-[#2292A3]">
     <!-- logo -->
-    <h1 class="pl-24 w-3/12 text-[#001524] font-semibold font-Roboto text-5xl">
-        <a href="#">
-            D<i class="fa-solid fa-heart fa-xs" style="color: #D00000;"></i>NATION
+    <h1 class="pl-24 w-3/12 text-[#1B2352] font-semibold font-mono text-5xl">
+        <a href="{{ url('/') }}">
+            d<i class="fa-solid fa-heart fa-xs" style="color: #D00000; "></i>norbox
         </a>
     </h1>
 
@@ -56,7 +56,7 @@
           <!-- search -->
           <div class="w-50 max-w-xs xl:max-w-lg 2xl:max-w-2xl border rounded-full hidden xl:flex items-center"style="background-color:#F4F4F4;  border-style:solid; border-color: #1B2352;">
                     <select class="bg-transparent uppercase font-bold text-sm p-4 mr-4" name="" id="" style="color: #1B2352;">
-                      <option>Toutes les catégories</option>
+                      <option>All Categories</option>
                     </select>
                     <input class="border-l border-gray-900 bg-transparent font-semibold text-sm pl-4" type="text" placeholder="Rechercher un don...">
                     <svg class="ml-auto h-5 px-4 text-gray-900" aria-hidden="true" focusable="false" data-prefix="far" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-search fa-w-16 fa-9x"><path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg>
@@ -65,12 +65,12 @@
 
     <!-- buttons --->
     <div class="f-container f-wrap-nowrap f-align-center f-content-end">
-            <a href="#" class=" text-sm font-semibold  px-4 py-2 rounded-full mr-2 text-white" style="background-color:#BD5814">
-                <i class="fa fa-plus"></i>
-                DONNER</a>
-            <a href="#" class="text-sm font-semibold mr-4 text-white" style="color: #1B2352;">
+            <a href="#" class=" text-sm font-bold  px-4 py-2 rounded-full mr-2 text-white" style="background-color:#BD5814">
+                <i class="fa fa-plus"> </i>
+                 DONATE</a>
+            <a href="{{route('register')}}" class="text-sm font-bold mr-4  hover:rounded-full hover:bg-gray-200 hover:py-2 px-4" style="color: #1B2352;">
                 <i class="fa fa-user fa-lg"></i>
-                <span> Me connecter</span></a>
+                <span> Create account</span></a>
 
 
          <div class="sm:hidden cursor-pointer">
@@ -83,139 +83,82 @@
 <!--Section 2-->
 <div class="items-center w-10/12 grid-cols-2 mx-auto overflow-x-hidden lg:grid md:py-14 lg:py-24 xl:py-14 lg:mt-3 xl:mt-5" data-aos="fade-right" data-aos-duration="800">
     <div class="pr-2 md:mb-14 py-14 md:py-0">
-      <h1 class="text-7xl font-mono font-bold text-[#001524] xl:text-5xl lg:text-3xl"><span class="block w-full">Charity is Investments,</span>
-        <span class="block w-full"> helps you to earn </span>
-        <span>Smiles</span>
+      <h1 class="text-7xl font-mono font-bold text-[#1B2352] xl:text-5xl lg:text-3xl"><span class="block w-full">Donating is an investment,</span>
+        <span class="block w-full text-[#2292A3]"> that helps you earn </span>
+        <span class="block w-full text-[#2292A3]">Smiles.</span>
     </h1>
-      <p class="font-serif py-4 text-lg text-[#001524] 2xl:py-8 md:py-6 2xl:pr-5">
-        Where there is charity and wisdom, There is neither dead nor
-numbness. Promise that you will contribute to the society by charity.
+      <p class="font-serif py-4 text-lg text-[#1B2352] 2xl:py-8 md:py-6 2xl:pr-5">
+        Where there is charity and wisdom, there is neither death nor numbness. Promise that you will contribute to society through charity.
     </p>
       <div class="mt-4">
-        <a href="#" class="px-5 py-3 font-serif font-semiblod text-xl tracking-wider text-white bg-[#BD5814] rounded-full md:px-8 "><i class="fa fa-plus"> </i><span> DONATE NOW</span> </a>
+        <a href="#" class="px-5 py-3 font-serif font-blod text-xl tracking-wider text-white bg-[#BD5814] rounded-full md:px-8 "><i class="fa fa-plus"> </i><span> DONATE NOW</span> </a>
       </div>
     </div>
 
     <div class="pb-10 overflow-hidden md:p-10 lg:p-0 sm:pb-0">
       <img id="heroImg1" class="transition-all duration-300 ease-in-out hover:scale-105 lg:w-full sm:mx-auto sm:w-4/6 sm:pb-12 lg:pb-0" *
-      src="{{ asset('image/home.jpg') }}" alt="Awesome hero page image" width="500" height="488"/>
+      src="{{ asset('image/don3.jpg') }}" alt="Awesome hero page image" width="500" height="488"/>
     </div>
   </div>
-
-  <!--Section categories-->
-<div class="container relative z-40 mx-auto mt-12">
+<!--Section cat -->
+<section class="w-full p-8">
     <div class="relative z-20 text-center">
-        <h2 class="mb-8  lg:text-5xl md:text-2xl font-extrabold leading-tight text-[#001524]">
+        <h2 class="mb-8  lg:text-5xl md:text-2xl font-extrabold leading-tight text-[#1B2352] ">
             Categories :
           </h2>
-
     </div>
-    <div class="flex flex-wrap justify-center mx-auto lg:w-full md:w-5/6 xl:shadow-small-red">
+    <div class="w-full grid grid-cols-4 p-4 gap-4">
+      <div class="relative h-64 bg-[url('{{ asset('image/cat7.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
+        <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-70">
+          <p class="text-white text-2xl font-bold">Vêtements</p>
+        </div>
+      </div>
+      <div class="relative h-64 bg-[url('{{ asset('image/food.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
+                <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-70">
 
-        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
-            <div>
-                <img src="{{ asset('image/cat7.jpg') }}" class="block mx-auto">
+          <p class="text-white text-2xl font-bold">Alimentaire</p>
+        </div>
+      </div>
+      <div class="relative h-64 bg-[url('{{ asset('image/cat9.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
+                <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-60">
 
-                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
-                    Vêtements
-                </p>
-            </div>
-        </a>
+          <p class="text-white text-2xl font-bold">Meubles</p>
+        </div>
+      </div>
+      <div class="relative h-64 bg-[url('{{ asset('image/cat6.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
+                <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-70">
 
-                        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
+          <p class="text-white text-2xl font-bold">Électroménager</p>
+        </div>
+      </div>
+      <div class="relative h-64 bg-[url('{{ asset('image/cat5.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
+                <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-70">
 
+          <p class="text-white text-2xl font-bold">Puériculture</p>
+        </div>
+      </div>
+      <div class="relative h-64 bg-[url('{{ asset('image/cat2.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
+                <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-70">
 
-            <div>
-                <img src="{{ asset('image/food.jpg') }}" class="block mx-auto">
+          <p class="text-white text-2xl font-bold">Multimédia et High tech</p>
+        </div>
+      </div>
+      <div class="relative h-64 bg-[url('{{ asset('image/cat4.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
+                <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-70">
 
-                                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
+          <p class="text-white text-2xl font-bold">Matériel spécialisé</p>
+        </div>
+      </div>
+      <div class="relative h-64 bg-[url('{{ asset('image/cat1.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
+                <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-70">
 
-                    Alimentaire
-                </p>
-            </div>
-        </a>
-
-                        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
-
-
-            <div>
-                <img src="{{ asset('image/cat9.jpg') }}" class="block mx-auto">
-
-                                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
-
-                    Meubles
-                </p>
-            </div>
-        </a>
-
-                        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
-
-
-            <div>
-                <img src="{{ asset('image/cat6.jpg') }}" class="block mx-auto">
-
-                                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
-
-                    Électroménager
-                </p>
-            </div>
-        </a>
-
-                        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
-
-
-            <div>
-                <img src="{{ asset('image/cat5.jpg') }}" class="block mx-auto">
-
-                                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
-
-                    Puériculture
-                </p>
-            </div>
-        </a>
-
-                        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
-
-
-            <div>
-                <img src="{{ asset('image/cat2.jpg') }}" class="block mx-auto">
-
-                                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
-
-                    Multimédia et High tech
-                </p>
-            </div>
-        </a>
-
-                        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
-
-
-            <div>
-                <img src="{{ asset('image/cat4.jpg') }}" class="block mx-auto ">
-
-                                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
-
-                   Matériel spécialisé
-                </p>
-            </div>
-        </a>
-
-                        <a href="#" class="block w-1/2  text-center lg:w-1/4 border-2 border-black">
-
-
-            <div>
-                <img src="{{ asset('image/cat1.jpg') }}" class="block mx-auto w-50 h-50">
-
-                                <p class="pt-4 text-sm font-medium capitalize font-semibold text-[#001524] lg:text-lg md:text-base md:pt-6">
-
-                   Loisirs, jeux et culture
-                </p>
-            </div>
-        </a>
-
+          <p class="text-white text-2xl font-bold">Loisirs, jeux et culture</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-</div>
+
 <!-- Section dons -->
 
 

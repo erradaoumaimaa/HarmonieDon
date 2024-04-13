@@ -22,6 +22,7 @@ return new class extends Migration
             $table->date('date_of_birth')->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
             $table->string('phone')->nullable();
+            $table->string('location')->nullable();
             $table->text('bio')->nullable();
             $table->softDeletes();
             $table->rememberToken();
