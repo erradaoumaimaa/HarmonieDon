@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Helpers\RoleHelper;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
 {
+    public function index() {
+        return view('auth.login');
+    }
 
     public function store(Request $request) {
 
@@ -27,7 +30,8 @@ class SessionController extends Controller
 
         $route = RoleHelper::redirect();
 
-        return redirect()->route($route);
+        return redirect()->route($route)->with('success', 'You have logged in successfully!');
+
     }
     public function destroy(Request $request) {
 

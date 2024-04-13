@@ -65,7 +65,7 @@
 
     <!-- buttons --->
     <div class="f-container f-wrap-nowrap f-align-center f-content-end">
-            <a href="#" class=" text-sm font-bold  px-4 py-2 rounded-full mr-2 text-white" style="background-color:#BD5814">
+            <a href="{{ route('login') }}" class=" text-sm font-bold  px-4 py-2 rounded-full mr-2 text-white " style="background-color: #D00000" >
                 <i class="fa fa-plus"> </i>
                  DONATE</a>
             <a href="{{route('register')}}" class="text-sm font-bold mr-4  hover:rounded-full hover:bg-gray-200 hover:py-2 px-4" style="color: #1B2352;">
@@ -91,7 +91,7 @@
         Where there is charity and wisdom, there is neither death nor numbness. Promise that you will contribute to society through charity.
     </p>
       <div class="mt-4">
-        <a href="#" class="px-5 py-3 font-serif font-blod text-xl tracking-wider text-white bg-[#BD5814] rounded-full md:px-8 "><i class="fa fa-plus"> </i><span> DONATE NOW</span> </a>
+        <a href="#" class="px-5 py-3 font-serif font-blod text-xl tracking-wider text-white  rounded-full md:px-8 " style="background-color:#D00000"><i class="fa fa-plus"> </i><span> DONATE NOW</span> </a>
       </div>
     </div>
 
