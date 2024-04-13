@@ -1,10 +1,21 @@
 @include('master.header')
-    <div class="relative min-h-screen flex items-center justify-center gap-8 bg-center py-12 px-4 sm:px-6 lg:px-8 bg-no-repeat bg-cover relative" style="background-image: url({{ asset('image/register.jpg') }});">
-      <div class="absolute bg-black opacity-70 inset-0 z-0"></div>
-
+    <div class="relative min-h-screen flex items-center justify-center gap-8 bg-center py-12 px-4 sm:px-6 lg:px-8 bg-no-repeat bg-cover relative" style="background-image: url({{ asset('image/register1.jpg') }});">
+      <div class="absolute bg-black opacity-70 inset-0 z-0">
+        <div class="px-4 py-2 mx-8 my-16 flex flex-row justify-start">
+            <a href="{{url('/')}}"
+                class="inline-flex items-center border border-[#D00000] px-3 py-1.5 rounded-md text-[#D00000] hover:bg-black">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18">
+                    </path>
+                </svg>
+                <span class="ml-1 font-extrabold text-lg">Back</span>
+            </a>
+            </a>
+        </div>
+      </div>
       <!-- Role -->
       <div class="hidden lg:flex flex-col items-center justify-center w-[30%] bg-white gap-4 mx-4 p-10 rounded-lg z-10">
-        <h1 class="text-2xl font-bold mb-6">Select your role</h1>
+        <h1 class="text-2xl font-bold mb-6">Who you are ?</h1>
         <button type='button' data-id="association" onclick='changeRole(event)' class='role transition-all border-[1px] border-[#03071E] shadow-sm rounded px-6 py-4 text-start flex items-center gap-4'>
           <svg class="w-16" viewBox="0 0 24 24" id="company-small-24px" xmlns="http://www.w3.org/2000/svg" fill="#D00000" stroke="#D00000">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -58,11 +69,11 @@
         <div class="grid gap-16 grid-cols-1">
           <div class="flex flex-col">
             <div class="flex flex-col sm:flex-row items-center">
-              <h1 class="block w-full text-center text-2xl font-bold mb-6">Create an account Donorbox</h1>
+              <h1 class="block w-full text-center text-2xl font-bold mb-6">Be part of our community at Donorbox and make a difference today!</h1>
               <div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
             </div>
             <div class="mt-5">
-              <form method="POST" action="{{ route('register.store', $role) }}"  enctype="multipart/form-data">
+                <form id="signup-form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="flex items-center justify-center">
                   <label for="profile_image" class="w-24 h-24 rounded-full cursor-pointer flex items-center justify-center border-2 border-dashed border-[#03071E]" id="profilePictureLabel">
@@ -117,59 +128,73 @@
                   </button>
                 </div>
                 <!--End Mobile Role-->
-                <!-- Start Form-->
                 <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-                  <input id="role" type='hidden' value='' name='role' />
-                  <div>
-                    <label for="name">Username</label>
-                    <input id="name" type="text" name="name" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                    <input id="role" type='hidden' value='' name='role' />
+                    <div>
+                      <label class="font-extrabold" for="name">Username</label>
+                      <input id="name" type="text" name="name" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                    </div>
+                    <div>
+                      <label class="font-extrabold" for="email">Email Address</label>
+                      <input id="email" type="email" name="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                    </div>
+                    <div>
+                      <label class="font-extrabold" for="password">Password</label>
+                      <input id="password" type="password" name="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                    </div>
+                    <div>
+                      <label class="font-extrabold" for="gender">Gender</label>
+                      <select id="gender" name="gender" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                        <option>female</option>
+                        <option>male</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label class="font-extrabold" for="phone">Cell Phone</label>
+                      <input id="phone" type="tel" name="phone" class="block w-full py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                    </div>
+                    <div>
+                      <label class="font-extrabold" for="date_of_birth">Birthay</label>
+                      <input id="date_of_birth" type="date" name="date_of_birth" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                    </div>
+                    <div>
+                      <label class="font-extrabold" for="location">Location</label>
+                      <select id="city" name="location" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                        <option value="" disabled selected>Select a city</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label class="font-extrabold" for="bio">Tell us about you</label>
+                      <textarea id="bio" name="bio" type="textarea" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring"></textarea>
+                    </div>
                   </div>
-                  <div>
-                    <label for="email">Email Address</label>
-                    <input id="email" type="email" name="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
-                  </div>
-                  <div>
-                    <label for="password">Password</label>
-                    <input id="password" type="password" name="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
-                  </div>
-                  <div>
-                    <label for="gender">Gender</label>
-                    <select id="gender" name="gender" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
-                      <option>female</option>
-                      <option>male</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label for="phone">Cell Phone</label>
-                    <input id="phone" type="tel" name="phone" class="block w-full py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
-                  </div>
-                  <div>
-                    <label for="date_of_birth">Date</label>
-                    <input id="date_of_birth" type="date" name="date_of_birth" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
-                  </div>
-                  <div>
-                    <label for="location">Location</label>
-                    <select id="city" name="location" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
-                      <option value="" disabled selected>Select a city</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label for="bio">Tell us about you</label>
-                    <textarea id="bio" name="bio" type="textarea" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring"></textarea>
-                  </div>
-                </div>
-                <button class="mt-3 text-lg font-semibold w-full text-white rounded-lg
-                        px-6 py-3 block shadow-xl bg-black">Register Now </button>
-                <div class="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-sm text-center justify-between">
-                  <a href="#" class="underline"> Forgot password? </a>
-                  <a href="{{ route('login') }}" class="underline"> Already have an Account </a>
-                </div>
-              </form>
+                  <button  type="submit" class="inline-block w-full py-4 px-6 mb-6 mt-4 text-center text-lg leading-6 text-white font-extrabold rounded-lg
+                          px-6 py-3 block shadow-xl bg-[#D00000]">Register</button>
+                  <p class="text-center font-extrabold">Already have an account? <a class="text-[#D00000] " href="{{ route('login') }}">Sign in</a></p>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-    <!--JS : image , role, location-->
-    <script src="/js/register.js"></script>
+    </section>
+      <!--JS : image , role, location-->
+      <script src="/js/register.js" defer></script>
+
+<script>
+    fetch('{{ asset("json/villes.json") }}')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); // Log the received JSON data
+        const citySelect = document.getElementById('city');
+
+        data.forEach(city => {
+            const option = document.createElement('option');
+            option.value = city.name;
+            option.textContent = city.name;
+            citySelect.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Erreur lors du chargement du fichier JSON :', error));
+
+</script>

@@ -1,7 +1,19 @@
 @include('master.header')
 
-<div class="relative min-h-screen flex items-center justify-center bg-center py-12 px-4 sm:px-6 lg:px-8 bg-no-repeat bg-cover relative items-center" style="background-image: url({{ asset('image/register.jpg') }});">
-    <div class="absolute bg-black opacity-70 inset-0 z-0"></div>
+<div class="relative min-h-screen flex items-center justify-center bg-center py-12 px-4 sm:px-6 lg:px-8 bg-no-repeat bg-cover relative items-center" style="background-image: url({{ asset('image/register1.jpg') }});">
+    <div class="absolute bg-black opacity-70 inset-0 z-0">
+        <div class="px-4 py-2 mx-8 my-16 flex flex-row justify-start">
+            <a href="{{url('/')}}"
+                class="inline-flex items-center border border-[#D00000] px-3 py-1.5 rounded-md text-[#D00000] hover:bg-black">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18">
+                    </path>
+                </svg>
+                <span class="ml-1 font-extrabold text-lg">Back</span>
+            </a>
+            </a>
+        </div>
+      </div>
     <div class="max-w-xl w-full space-y-8 p-10 bg-white rounded-xl shadow-lg z-10">
 
         <div class="grid gap-2 grid-cols-1">
@@ -21,11 +33,11 @@
                         @csrf
                         <div class="mb-6">
                             <label class="block mb-2 font-extrabold " for="">Email</label>
-                            <input class="inline-block w-full p-4 leading-6  bg-white shadow border-2 border-black rounded-md" type="email" name="email" >
+                            <input class="inline-block w-full p-4 leading-6  bg-white shadow border border-black rounded-md focus:border-blue-500 focus:outline-none focus:ring" type="email" name="email" >
                           </div>
                           <div class="mb-6">
                             <label class="block mb-2 font-extrabold " for="">Password</label>
-                            <input class="inline-block w-full p-4 leading-6  bg-white shadow border-2 border-black rounded-md" type="password" name="password">
+                            <input class="inline-block w-full p-4 leading-6  bg-white shadow border border-black rounded-md focus:border-blue-500 focus:outline-none focus:ring" type="password" name="password">
                           </div>
                           <div class="flex flex-wrap -mx-4 mb-6 items-center justify-between">
                             <div class="w-full lg:w-auto px-4 mb-4 lg:mb-0">
