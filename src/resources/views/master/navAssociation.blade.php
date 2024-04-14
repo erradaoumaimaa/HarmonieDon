@@ -13,6 +13,7 @@
     <!-- navigation -->
     <nav class="nav font-semibold text-lg">
         <ul class="flex items-center">
+            <!--home-->
             <li class="p-4 border-b-2 border-[#D00000] border-opacity-0 hover:border-opacity-100 hover:text-[#D00000] duration-200 cursor-pointer active">
               <a href="">
                 <span class="block px-1 pt-1 pb-1">
@@ -30,6 +31,7 @@
                 </svg>
 
 			</li>
+              <!--profile-->
             <li class="p-4 border-b-2 border-[#D00000] border-opacity-0 hover:border-opacity-100 hover:text-[#D00000] duration-200 cursor-pointer">
               <a href="">
                 <span class="block px-1 pt-1 pb-1">
@@ -48,28 +50,31 @@
                 </svg>
 
 			</li>
+              <!--Add-->
             <li class="p-4 border-b-2 border-[#D00000] border-opacity-0 hover:border-opacity-100 hover:text-[#D00000] duration-200 cursor-pointer">
                 <a href="">
                   <span class="block px-1 pt-1 pb-1">
                     <svg class="w-8 h-8"
-                    xmlns="http://www.w3.org/2000/svg" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="12" y1="8" x2="12" y2="16" />  <line x1="8" y1="12" x2="16" y2="12" /></svg>
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                    </svg>
+
               </span>
                 </a>
-              </li>
+            </li>
               <li class="text-gray-300">
                 <svg class="w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
                 </svg>
 
-			</li>
+			    </li>
+                  <!--My Blog-->
             <li class="p-4 border-b-2 border-[#D00000] border-opacity-0 hover:border-opacity-100 hover:text-[#D00000] duration-200 cursor-pointer">
               <a href="">
                 <span class="block px-1 pt-1 pb-1">
-                <svg class="w-8 h-8"
-                xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
-                </svg>
+                    <svg class="w-8 h-8"
+                    xmlns="http://www.w3.org/2000/svg" width="24"  height="24"  viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <rect width="6" height="6" x="14" y="5" rx="1" />  <line x1="4" y1="7" x2="10" y2="7" />  <line x1="4" y1="11" x2="10" y2="11" />  <line x1="4" y1="15" x2="20" y2="15" />  <line x1="4" y1="19" x2="20" y2="19" /></svg>
             </span>
               </a>
             </li>
@@ -80,6 +85,7 @@
                 </svg>
 
 			</li>
+              <!--Notification-->
             <li class="p-4 border-b-2 border-[#D00000] border-opacity-0 hover:border-opacity-100 hover:text-[#D00000] duration-200 cursor-pointer">
               <a href="">
                 <span class="block px-1 pt-1 pb-1">
