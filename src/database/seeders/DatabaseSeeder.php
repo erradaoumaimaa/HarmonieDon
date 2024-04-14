@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\BlogPost;
 use App\Models\Donation;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -36,7 +37,10 @@ class DatabaseSeeder extends Seeder
             'email' => 'association@example.net',
             'role' => 'association'
         ]);
+
         Donation::factory(10)->create();
+
+        BlogPost::factory(10)->create();
     }
 
 }
