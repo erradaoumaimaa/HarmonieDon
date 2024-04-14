@@ -40,6 +40,9 @@ Route::middleware('can:admin')->group(function() {
 /** Donor */
 Route::middleware('can:donor')->group(function() {
     Route::get('donors', [DonorController::class, 'index'])->name('donors.index');
+    /** Create a donation  */
+    Route::get('donors/create',[DonorController::class, 'create'])->name('donors.create');
+    Route::post('donors/store',[DonorController::class, 'store'])->name('donors.store');
 });
 
 /** association */
