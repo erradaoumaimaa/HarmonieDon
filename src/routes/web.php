@@ -43,6 +43,9 @@ Route::middleware('can:donor')->group(function() {
     /** Create a donation  */
     Route::get('donors/create',[DonorController::class, 'create'])->name('donors.create');
     Route::post('donors/store',[DonorController::class, 'store'])->name('donors.store');
+    /**Update */
+    Route::get('/donors/donations/{id}/edit', [DonorController::class, 'edit'])->name('donors.edit');
+    Route::put('/donors/donations/{id}/update', [DonorController::class, 'update'])->name('donors.update');
 });
 
 /** association */

@@ -79,4 +79,35 @@ class DonationController extends Controller
         return redirect()->back();
     }
 
+    public function destroy($id) {
+
+        $donation = Donation::findOrFaill($id);
+
+        if ($donation->image) {
+            Storage::delete('public/' . $donation->image);
+        }
+
+        $donation->delete();
+
+        return redirect()->back()->with('success', 'Donation deleted successfully!');
+    }
+    
+    public function approve(Donation $donation) {
+
+        $donation->update([
+            'status' => 'approved'
+        ]);
+
+        return back();
+    }
+
+    public function reject(Donation $donation) {
+
+        $donation->update([
+            'status' => 'rejected'
+        ]);
+
+        return back();
+    }
+
 }
