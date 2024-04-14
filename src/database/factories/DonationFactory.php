@@ -20,7 +20,7 @@ class DonationFactory extends Factory
             'item_condition' => $this->faker->randomElement(['good', 'needs repair', 'damaged', 'exclusivity']),
             'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),
             'donor_availability' => $this->faker->randomElement(['weekend', 'evening', 'flexible']),
-            'user_id' => User::factory()->create(['role' => 'user']),
+            'user_id' => User::factory()->create(['role' => 'donor']),
             'categorie_id' => Category::factory(),
         ];
     }

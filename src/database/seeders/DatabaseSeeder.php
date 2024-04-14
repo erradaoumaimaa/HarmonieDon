@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\BlogPost;
+use App\Models\Comment;
 use App\Models\Donation;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -41,6 +42,8 @@ class DatabaseSeeder extends Seeder
         Donation::factory(10)->create();
 
         BlogPost::factory(10)->create();
+
+        Comment::factory(10)->create();
     }
 
 }
