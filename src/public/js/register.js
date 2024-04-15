@@ -32,3 +32,19 @@ function displayImage(onlabel, inInput) {
     }
 }
 
+fetch('{{ asset("json/villes.json") }}')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); 
+        const citySelect = document.getElementById('city');
+
+        data.forEach(city => {
+            const option = document.createElement('option');
+            option.value = city.name;
+            option.textContent = city.name;
+            citySelect.appendChild(option);
+        });
+    })
+    .catch(error => console.error('Erreur lors du chargement du fichier JSON :', error));
+
+

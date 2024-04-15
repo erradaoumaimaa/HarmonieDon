@@ -82,10 +82,8 @@ class CategoryController extends Controller
     if ($request->hasFile('image')) {
         $oldImagePath = $category->image;
         if ($oldImagePath) {
-            // Supprimer l'ancienne image si elle existe
             Storage::delete('public/' . $oldImagePath);
         }
-        // Stocker la nouvelle image dans le bon répertoire
         $category->image = $request->file('image')->store('public/categories');
         $category->image = str_replace('public/', '', $category->image);
     }
