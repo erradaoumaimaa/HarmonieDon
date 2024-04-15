@@ -1,5 +1,6 @@
 @include('master.header')
-    <div class="relative min-h-screen flex items-center justify-center gap-8 bg-center py-12 px-4 sm:px-6 lg:px-8 bg-no-repeat bg-cover relative" style="background-image: url({{ asset('image/register1.jpg') }});">
+<div class="relative min-h-screen flex items-center justify-center gap-8 py-12 px-4 sm:px-6 lg:px-8 bg-no-repeat bg-cover" style="background-image: url('{{ asset('image/register1.jpg') }}');">
+
       <div class="absolute bg-black opacity-70 inset-0 z-0">
         <div class="px-4 py-2 mx-8 my-16 flex flex-row justify-start">
             <a href="{{url('/')}}"
@@ -154,7 +155,7 @@
                       <input id="phone" type="tel" name="phone" class="block w-full py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
                     </div>
                     <div>
-                      <label class="font-extrabold" for="date_of_birth">Birthay</label>
+                      <label class="font-extrabold" for="date_of_birth">Birthday</label>
                       <input id="date_of_birth" type="date" name="date_of_birth" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
                     </div>
                     <div>

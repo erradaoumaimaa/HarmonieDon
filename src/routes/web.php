@@ -46,6 +46,9 @@ Route::middleware('can:donor')->group(function() {
     /**Update */
     Route::get('/donors/donations/{id}/edit', [DonorController::class, 'edit'])->name('donors.edit');
     Route::put('/donors/donations/{id}/update', [DonorController::class, 'update'])->name('donors.update');
+    /**Delete */
+    Route::delete('/donors/donations/{id}/destroy', [DonorController::class, 'destroy'])->name('donors.destroy');
+
 });
 
 /** association */
