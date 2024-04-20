@@ -17,8 +17,9 @@ class Donation extends Model
         'object_state',
         'status',
         'donor_availability',
-        'category_id',
-        'user_id', 
+        'item_condition',
+        'categorie_id',
+        'user_id',
     ];
 
     public function user()

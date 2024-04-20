@@ -15,7 +15,6 @@
 
             <!-- Styles -->
             <script src="https://cdn.tailwindcss.com"></script>
-
             {{-- <script>
                 tailwind.config = {
                     theme: {
@@ -87,11 +86,11 @@
         <span class="block w-full text-[#2292A3]"> that helps you earn </span>
         <span class="block w-full text-[#2292A3]">Smiles.</span>
     </h1>
-      <p class="font-serif py-4 text-lg text-[#1B2352] 2xl:py-8 md:py-6 2xl:pr-5">
+      <p class="font-mono py-4 text-lg text-[#1B2352] 2xl:py-8 md:py-6 2xl:pr-5">
         Where there is charity and wisdom, there is neither death nor numbness. Promise that you will contribute to society through charity.
     </p>
       <div class="mt-4">
-        <a href="#" class="px-5 py-3 font-serif font-blod text-xl tracking-wider text-white  rounded-full md:px-8 " style="background-color:#D00000"><i class="fa fa-plus"> </i><span> DONATE NOW</span> </a>
+        <a href="{{route('login')}}" class="px-5 py-3 font-mono font-blod text-xl tracking-wider text-white  rounded-full md:px-8 " style="background-color:#D00000"><i class="fa fa-plus"> </i><span> DONATE NOW</span> </a>
       </div>
     </div>
 
@@ -100,65 +99,32 @@
       src="{{ asset('image/don3.jpg') }}" alt="Awesome hero page image" width="500" height="488"/>
     </div>
   </div>
-<!--Section cat -->
-<section class="w-full p-8">
-    <div class="relative z-20 text-center">
-        <h2 class="mb-8  lg:text-5xl md:text-2xl font-extrabold leading-tight text-[#1B2352] ">
-            Categories :
-          </h2>
+<!--Section  image -->
+<!-- <div class="w-full bg-center bg-cover h-96" style="background-image: url({{ asset('image/register.jpg') }});">
+
+    <div class="flex items-center justify-center w-full h-full ">
+        <div class="text-center">
+        </div>
     </div>
-    <div class="w-full grid grid-cols-4 p-4 gap-4">
-      <div class="relative h-64 bg-[url('{{ asset('image/cat7.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
-        <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-70">
-          <p class="text-white text-2xl font-bold">Vêtements</p>
-        </div>
-      </div>
-      <div class="relative h-64 bg-[url('{{ asset('image/food.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
-                <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-70">
+</div> -->
+<div class="bg-gray-800 mt-10">
+    <div class="max-w-screen-xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <h2 class="text-3xl leading-9 font-extrabold tracking-tight text-white sm:text-4xl sm:leading-10">
+            Ready to get started?
+            <br>
+           Create a portfolio for free!
+        </h2>
+        <div class="mt-8 flex justify-center">
+            <div class="inline-flex rounded-md shadow">
+                <a href="#"
+                    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                    Get started
+                </a>
+            </div>
 
-          <p class="text-white text-2xl font-bold">Alimentaire</p>
         </div>
-      </div>
-      <div class="relative h-64 bg-[url('{{ asset('image/cat9.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
-                <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-60">
-
-          <p class="text-white text-2xl font-bold">Meubles</p>
-        </div>
-      </div>
-      <div class="relative h-64 bg-[url('{{ asset('image/cat6.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
-                <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-70">
-
-          <p class="text-white text-2xl font-bold">Électroménager</p>
-        </div>
-      </div>
-      <div class="relative h-64 bg-[url('{{ asset('image/cat5.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
-                <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-70">
-
-          <p class="text-white text-2xl font-bold">Puériculture</p>
-        </div>
-      </div>
-      <div class="relative h-64 bg-[url('{{ asset('image/cat2.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
-                <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-70">
-
-          <p class="text-white text-2xl font-bold">Multimédia et High tech</p>
-        </div>
-      </div>
-      <div class="relative h-64 bg-[url('{{ asset('image/cat4.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
-                <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-70">
-
-          <p class="text-white text-2xl font-bold">Matériel spécialisé</p>
-        </div>
-      </div>
-      <div class="relative h-64 bg-[url('{{ asset('image/cat1.jpg') }}')] bg-cover bg-center bg-no-repeat rounded">
-                <div class="absolute h-full w-full flex items-center justify-center bg-black bg-opacity-70">
-
-          <p class="text-white text-2xl font-bold">Loisirs, jeux et culture</p>
-        </div>
-      </div>
     </div>
-  </section>
-
-
+</div>
 <!-- Section dons -->
 
 
@@ -174,16 +140,16 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
-        <div class=" shadow-md rounded-xl ">
+        <div class=" shadow-md rounded-xl w-80">
             <!--Image and etat-->
             <div class="relative">
                 <!--image -->
-                    <img class="w-full"
+                    <img class="w-full rounded-t"
                         src="{{ asset('image/wow.jpg') }}"
                         alt="donnation">
                         <div
                         class=" absolute bottom-0 top-0 right-0 left-0
-                         opacity-25 ">
+                         opacity-25  ">
                     </div>
                     <!--Etat -->
                     <div
@@ -215,10 +181,15 @@
 
     </div>
 </div>
+<!-- component -->
 
-    <footer class="bg-[#2292A3] text-white py-4">
+
+
+
+
+    <!-- <footer class="bg-[#2292A3] text-white py-4">
         <div class="container mx-auto text-center">
             <p> &copy; 2024 D<i class="fa-solid fa-heart fa-xs" style="color: #D00000;"></i>NATION. All rights reserved.
         </div>
-    </footer>
+    </footer> -->
 

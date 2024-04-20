@@ -14,27 +14,33 @@ class DonationController extends Controller
     }
 
     public function store(Request $request) {
+        // dd($request);
         $validatedAttributes = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'address' => 'required|string',
-            'object_state' => 'required|string',
-            'category_id' => 'required|exists:categories,id',
+            'item_condition' => 'required|string',
+            'categorie_id' => 'required|exists:categories,id',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'donor_availability' => 'required|string',
         ]);
 
         $imageName = time() . '.' . $request->image->extension();
 
         if ($request->file('image')->storeAs('public/donations', $imageName)) {
+
+
             $donation = Donation::create([
                 'user_id' => auth()->id(),
-                'category_id' => $validatedAttributes['category_id'],
+                'categorie_id' => $validatedAttributes['categorie_id'],
                 'title' => $validatedAttributes['title'],
                 'description' => $validatedAttributes['description'],
                 'address' => $validatedAttributes['address'],
-                'object_state' => $validatedAttributes['object_state'],
-                'image' => 'events/' . $imageName
+                'item_condition' => $validatedAttributes['item_condition'],
+                'donor_availability' => $validatedAttributes['donor_availability'],
+                'image' => 'donations/' . $imageName
             ]);
+            dd($donation);
 
             if ($donation) {
                 session()->flash('success', 'Donation created successfully!');
@@ -42,11 +48,15 @@ class DonationController extends Controller
                 session()->flash('error', 'Failed to create new donation');
             }
         } else {
+            // Debugging message
+            dd('Failed to upload image');
             session()->flash('error', 'Failed to upload image');
         }
 
         return redirect()->route('donors.index');
     }
+
+
 
     public function edit($id) {
         $categories = Category::all();
@@ -91,7 +101,7 @@ class DonationController extends Controller
 
         return redirect()->back()->with('success', 'Donation deleted successfully!');
     }
-    
+
     public function approve(Donation $donation) {
 
         $donation->update([

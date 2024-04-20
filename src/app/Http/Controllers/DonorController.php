@@ -10,4 +10,8 @@ class DonorController extends Controller
         return view('donors.index');
 
     }
+
+    public function profile(){
+        return view('donors.profile');
+    }
 }

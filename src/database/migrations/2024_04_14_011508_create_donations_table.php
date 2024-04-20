@@ -17,18 +17,17 @@ class CreateDonationsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('categorie_id');
             $table->string('title');
-            $table->string('image')->nullable();
+            $table->string('image');
             $table->text('description');
             $table->string('address');
-            $table->enum('item_condition', ['good', 'needs repair', 'damaged', 'exclusivity'])->default('good');
+            $table->string('item_condition');
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
-            $table->enum('donor_availability', ['weekend', 'evening', 'flexible'])->default('flexible');
+            $table->string('donor_availability');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('categorie_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

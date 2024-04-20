@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AssociationController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DonationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,15 +41,16 @@ Route::middleware('can:admin')->group(function() {
 /** Donor */
 Route::middleware('can:donor')->group(function() {
     Route::get('donors', [DonorController::class, 'index'])->name('donors.index');
+    Route::get('donors/profile', [DonorController::class, 'profile'])->name('donors.profile');
     /** Create a donation  */
-    Route::get('donors/create',[DonorController::class, 'create'])->name('donors.create');
-    Route::post('donors/store',[DonorController::class, 'store'])->name('donors.store');
+    Route::get('donors/create',[DonationController::class, 'create'])->name('donors.create');
+    Route::post('donors/store',[DonationController::class, 'store'])->name('donors.store');
     /**Update */
-    Route::get('/donors/donations/{id}/edit', [DonorController::class, 'edit'])->name('donors.edit');
-    Route::put('/donors/donations/{id}/update', [DonorController::class, 'update'])->name('donors.update');
+    Route::get('/donors/donations/{id}/edit', [DonationController::class, 'edit'])->name('donors.edit');
+    Route::put('/donors/donations/{id}/update', [DonationController::class, 'update'])->name('donors.update');
     /**Delete */
-    Route::delete('/donors/donations/{id}/destroy', [DonorController::class, 'destroy'])->name('donors.destroy');
-
+    Route::delete('/donors/donations/{id}/destroy', [DonationController::class, 'destroy'])->name('donors.destroy');
+    
 });
 
 /** association */
