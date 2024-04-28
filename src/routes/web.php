@@ -79,3 +79,5 @@ Route::get('donation',function(){
 Route::middleware('auth')->group(function() {
     Route::get('/chat/{id}', [MessageController::class, 'allMessages'])->name('messages.index');
 });
+
+
