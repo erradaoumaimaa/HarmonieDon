@@ -1,150 +1,98 @@
-<!DOCTYPE html>
-    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-        <head>
+@include('master.header')
 
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-
-            <title>Donation</title>
-
-            <!-- Fonts -->
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-            <script src="https://kit.fontawesome.com/6e1faf1eda.js" crossorigin="anonymous"></script>
-
-            <!-- Styles -->
-            <script src="https://cdn.tailwindcss.com"></script>
-            {{-- <script>
-                tailwind.config = {
-                    theme: {
-                        extend: {
-                            colors: {
-
-                                   bleu:'#001524',
-                                   bleuu: '#15616D',
-                                   white:'#FFECD1',
-                                   jaune:'#FF7D00',
-                                   marron :'#78290F',
-                                   red:'#a10702',
-                                   orange:'#ff4000',
-                                   redd:'#d00000',
-
-                            }
-                        }
-                    }
-                }
-            </script> --}}
-
-            <!-- JS -->
-
-        </head>
-
-        <body>
-            <!-- Navbar : lg/xl -->
-<header class="header static top-0 flex items-center justify-between px-16 p-4 border-b-2 border-[#2292A3]">
-    <!-- logo -->
-    <h1 class="pl-24 w-3/12 text-[#1B2352] font-semibold font-mono text-5xl">
-        <a href="{{ url('/') }}">
-            d<i class="fa-solid fa-heart fa-xs" style="color: #D00000; "></i>norbox
-        </a>
-    </h1>
-
-    <!-- navigation -->
-    <nav class="nav font-semibold text-lg">
-          <!-- search -->
-          <div class="w-50 max-w-xs xl:max-w-lg 2xl:max-w-2xl border rounded-full hidden xl:flex items-center"style="background-color:#F4F4F4;  border-style:solid; border-color: #1B2352;">
-                    <select class="bg-transparent uppercase font-bold text-sm p-4 mr-4" name="" id="" style="color: #1B2352;">
-                      <option>All Categories</option>
-                    </select>
-                    <input class="border-l border-gray-900 bg-transparent font-semibold text-sm pl-4" type="text" placeholder="Rechercher un don...">
-                    <svg class="ml-auto h-5 px-4 text-gray-900" aria-hidden="true" focusable="false" data-prefix="far" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-search fa-w-16 fa-9x"><path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg>
-           </div>
-    </nav>
-
-    <!-- buttons --->
+<nav class="block w-full max-w-screen-full px-4 py-2 mx-auto text-white bg-[#094839] border-b-4 border-[#E44A19]  backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4">
+  <div class="container flex items-center justify-between mx-auto ">
+    <!--logo-->
+    <a href="{{ route('donors.index') }}"
+      class=" mr-4 block cursor-pointer py-1.5 font-mono  font-bold  text-4xl leading-relaxed antialiased">
+        <span class="text-[#E44A19]">donor</span><span class="text-white">box</span>
+    </a>
+    <!--end logo-->
+    <div class="hidden lg:block">
+      <!-- buttons  --->
     <div class="f-container f-wrap-nowrap f-align-center f-content-end">
-            <a href="{{ route('login') }}" class=" text-sm font-bold  px-4 py-2 rounded-full mr-2 text-white " style="background-color: #D00000" >
-                <i class="fa fa-plus"> </i>
-                 DONATE</a>
-            <a href="{{route('register')}}" class="text-sm font-bold mr-4  hover:rounded-full hover:bg-gray-200 hover:py-2 px-4" style="color: #1B2352;">
+          <!-- buttons login  --->
+            <a href="{{ route('login') }}" class=" text-md font-bold  px-4 py-2  mr-2 text-white bg-[#E44A19] ">
+               Login </a>
+         <!-- buttons Register --->
+            <a href="{{route('register')}}" class="text-md font-bold mr-4  hover: hover:text-[#E44A19] hover:py-2 px-4 text-white">
                 <i class="fa fa-user fa-lg"></i>
                 <span> Create account</span></a>
-
-
          <div class="sm:hidden cursor-pointer">
              <svg class="w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <line x1="3" y1="12" x2="21" y2="12" />  <line x1="3" y1="6" x2="21" y2="6" />  <line x1="3" y1="18" x2="21" y2="18" /></svg>
           </div>
   </div>
 
-</header>
-<!--Section 2-->
+</nav>
+
+
+<body class="bg-[#FBF6F4]">
+<!--hero Section -->
 <div class="items-center w-10/12 grid-cols-2 mx-auto overflow-x-hidden lg:grid md:py-14 lg:py-24 xl:py-14 lg:mt-3 xl:mt-5" data-aos="fade-right" data-aos-duration="800">
     <div class="pr-2 md:mb-14 py-14 md:py-0">
-      <h1 class="text-7xl font-mono font-bold text-[#1B2352] xl:text-5xl lg:text-3xl"><span class="block w-full">Donating is an investment,</span>
-        <span class="block w-full text-[#2292A3]"> that helps you earn </span>
-        <span class="block w-full text-[#2292A3]">Smiles.</span>
+      <h1 class="text-7xl  font-bold text-[#272343] xl:text-5xl lg:text-3xl"><span class="block w-full">Donating is an investment,</span>
+        <span class="block w-full text-[#E44A19]"> that helps you earn </span>
+        <span class="block w-full text-[#E44A19]">Smiles.</span>
     </h1>
-      <p class="font-mono py-4 text-lg text-[#1B2352] 2xl:py-8 md:py-6 2xl:pr-5">
+      <p class=" py-4 text-lg text-[#272343] 2xl:py-8 md:py-6 2xl:pr-5">
         Where there is charity and wisdom, there is neither death nor numbness. Promise that you will contribute to society through charity.
     </p>
       <div class="mt-4">
-        <a href="{{route('login')}}" class="px-5 py-3 font-mono font-blod text-xl tracking-wider text-white  rounded-full md:px-8 " style="background-color:#D00000"><i class="fa fa-plus"> </i><span> DONATE NOW</span> </a>
+      <a class="mt-8 xl:mt-12 px-12 py-5 text-lg font-blod text-white inline-block bg-[#E44A19]  shadow-xl border border-transparent "
+        href="{{route('login')}}" >Get
+            started  <i class="fa-solid fa-arrow-right text-white"> </i></a>
       </div>
+
     </div>
 
     <div class="pb-10 overflow-hidden md:p-10 lg:p-0 sm:pb-0">
-      <img id="heroImg1" class="transition-all duration-300 ease-in-out hover:scale-105 lg:w-full sm:mx-auto sm:w-4/6 sm:pb-12 lg:pb-0" *
-      src="{{ asset('image/don3.jpg') }}" alt="Awesome hero page image" width="500" height="488"/>
+      <img id="heroImg1" class="transition-all duration-300 ease-in-out  lg:w-full sm:mx-auto sm:w-4/6 sm:pb-12 lg:pb-0" *
+      src="{{ asset('image/hero.png') }}" alt="Awesome hero page image" width="500" height="488"/>
     </div>
   </div>
-<!--Section  image -->
-<!-- <div class="w-full bg-center bg-cover h-96" style="background-image: url({{ asset('image/register.jpg') }});">
 
-    <div class="flex items-center justify-center w-full h-full ">
-        <div class="text-center">
-        </div>
-    </div>
-</div> -->
-<div class="bg-gray-800 mt-10">
-    <div class="max-w-screen-xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <h2 class="text-3xl leading-9 font-extrabold tracking-tight text-white sm:text-4xl sm:leading-10">
-            Ready to get started?
-            <br>
-           Create a portfolio for free!
-        </h2>
-        <div class="mt-8 flex justify-center">
-            <div class="inline-flex rounded-md shadow">
-                <a href="#"
-                    class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
-                    Get started
-                </a>
-            </div>
+<!--END Hero Section -->
 
-        </div>
+<!--separateure Yellow-->
+  <div class="w-full h-24  bg-[#FFE353] flex gap-4 text-[#272343] text-3xl font-bold items-center justify-around">
+            <p><svg class="text-[#272343] w-10 h-10"
+            xmlns="http://www.w3.org/2000/svg" width="24"  height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg></p>
+            <p>Donate</p>
+            <p><svg class="text-[#272343] w-10 h-10"
+            xmlns="http://www.w3.org/2000/svg" width="24"  height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg></p>
+            <p>Support</p>
+            <p><svg class="text-[#272343] w-10 h-10"
+            xmlns="http://www.w3.org/2000/svg" width="24"  height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg></p>
+            <p>See Smile</p>
+            <p><svg class="text-[#272343] w-10 h-10"
+            xmlns="http://www.w3.org/2000/svg" width="24"  height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg></p>
+
     </div>
-</div>
+<!--END separateure -->
+
 <!-- Section dons -->
-
-
-<div class="max-w-screen-3xl mx-auto p-5 sm:p-10 md:p-16">
+<div class="max-w-screen-3xl mx-auto  sm:p-10 md:p-16 ">
     <div class="relative z-20 text-center">
-        <h2 class="mb-8  lg:text-3xl md:text-2xl font-extrabold leading-tight text-[#001524]">
+        <h2 class="mb-8  lg:text-3xl md:text-2xl font-extrabold leading-tight text-[#272343]">
             What are you looking for?
           </h2>
-          <p class="px-6 pt-3 text-sm text-[#001524] lg:text-lg md:text-base md:px-0 font-body m-4">
-            Check out our offerings for different types of ........
-          </p>
 
     </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
-        <div class=" shadow-md rounded-xl w-80">
+    <div class="flex justify-between gap-4">
+        <div class=" shadow-md rounded w-80 border border-2 border-[#094839]">
             <!--Image and etat-->
             <div class="relative">
                 <!--image -->
-                    <img class="w-full rounded-t"
+                    <img class="w-full rounded-t-xl"
                         src="{{ asset('image/wow.jpg') }}"
                         alt="donnation">
                         <div
@@ -153,43 +101,429 @@
                     </div>
                     <!--Etat -->
                     <div
-                        class="absolute bottom-8 left-0 bg-white px-4 py-2 font-bold text-[#001524] text-sm rounded-r-lg">
+                        class="absolute bottom-8 left-0 bg-white px-4 py-2 font-bold text-[#272343] text-sm rounded-r-lg">
                         Exclusivité
                     </div>
             </div>
             <!--end Image -->
             <!--title and descp-->
-            <div class="px-6 py-4">
-                     <p class="font-semibold text-xl text-[#001524] inline-block hover:text-[#28A5B9] transition duration-500 ease-in-out">Lorem ipsum dolor sit</a>
-                <p class="text-gray-900 text-sm">
+            <div class="relative px-6 py-4">
+            <div class="absolute w-full top-0 left-0 translate-y-[-50%] flex items-center justify-center">
+            <img
+                alt="tania andrew"
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
+                class="relative inline-block h-12 w-12 cursor-pointer  object-cover object-center"
+                />
+                </div>
+
+            <p class="font-semibold text-xl text-[#272343] inline-block hover:text-[#28A5B9] transition duration-500 ease-in-out py-2 pt-4">Lorem ipsum dolor sit</a>
+             <p class="text-gray-900 text-sm">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea facere esse consectetur natus, aliquam error quam minima voluptatem cupiditate provident atque nobis nihil inventore praesentium ipsa dolorum molestiae dolorem nisi?
                 </p>
             </div>
             <!--Category and location -->
             <div class="flex  items-center justify-between">
                 <span class="py-2 px-4
-                  focus:outline-none text-md font-semibold text-[#C62CAB] inline-block">Puériculture</span>
+                  focus:outline-none text-md font-semibold text-[#094839] inline-block">Puériculture</span>
                 <span
-                class="py-2 px-4 text-sm font-regular text-gray-900 mr-1 flex flex-row justify-between items-center">
+                class="py-2 px-4 text-sm  text-gray-900 mr-1 flex flex-row justify-between items-center">
                     <svg class="w-4 h-4"
                     xmlns="http://www.w3.org/2000/svg" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />  <circle cx="12" cy="10" r="3" /></svg>
                     <span class="ml-1 font-semiblod text-md">Safi</span></span>
             </div>
+
+            <!-- end Category and location -->
+        </div>
+        <!--end Card-->
+        <div class=" shadow-md rounded w-80 border border-2 border-[#094839]">
+            <!--Image and etat-->
+            <div class="relative">
+                <!--image -->
+                    <img class="w-full rounded-t-xl"
+                        src="{{ asset('image/wow.jpg') }}"
+                        alt="donnation">
+                        <div
+                        class=" absolute bottom-0 top-0 right-0 left-0
+                         opacity-25  ">
+                    </div>
+                    <!--Etat -->
+                    <div
+                        class="absolute bottom-8 left-0 bg-white px-4 py-2 font-bold text-[#272343] text-sm rounded-r-lg">
+                        Exclusivité
+                    </div>
+            </div>
+            <!--end Image -->
+            <!--title and descp-->
+            <div class="relative px-6 py-4">
+            <div class="absolute w-full top-0 left-0 translate-y-[-50%] flex items-center justify-center">
+            <img
+                alt="tania andrew"
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
+                class="relative inline-block h-12 w-12 cursor-pointer  object-cover object-center"
+                />
+                </div>
+
+            <p class="font-semibold text-xl text-[#272343] inline-block hover:text-[#28A5B9] transition duration-500 ease-in-out py-2 pt-4">Lorem ipsum dolor sit</a>
+             <p class="text-gray-900 text-sm">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea facere esse consectetur natus, aliquam error quam minima voluptatem cupiditate provident atque nobis nihil inventore praesentium ipsa dolorum molestiae dolorem nisi?
+                </p>
+            </div>
+            <!--Category and location -->
+            <div class="flex  items-center justify-between">
+                <span class="py-2 px-4
+                  focus:outline-none text-md font-semibold text-[#094839] inline-block">Puériculture</span>
+                <span
+                class="py-2 px-4 text-sm  text-gray-900 mr-1 flex flex-row justify-between items-center">
+                    <svg class="w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />  <circle cx="12" cy="10" r="3" /></svg>
+                    <span class="ml-1 font-semiblod text-md">Safi</span></span>
+            </div>
+
+            <!-- end Category and location -->
+        </div>
+        <!--end Card-->
+        <div class=" shadow-md rounded w-80 border border-2 border-[#094839]">
+            <!--Image and etat-->
+            <div class="relative">
+                <!--image -->
+                    <img class="w-full rounded-t-xl"
+                        src="{{ asset('image/wow.jpg') }}"
+                        alt="donnation">
+                        <div
+                        class=" absolute bottom-0 top-0 right-0 left-0
+                         opacity-25  ">
+                    </div>
+                    <!--Etat -->
+                    <div
+                        class="absolute bottom-8 left-0 bg-white px-4 py-2 font-bold text-[#272343] text-sm rounded-r-lg">
+                        Exclusivité
+                    </div>
+            </div>
+            <!--end Image -->
+            <!--title and descp-->
+            <div class="relative px-6 py-4">
+            <div class="absolute w-full top-0 left-0 translate-y-[-50%] flex items-center justify-center">
+            <img
+                alt="tania andrew"
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
+                class="relative inline-block h-12 w-12 cursor-pointer  object-cover object-center"
+                />
+                </div>
+
+            <p class="font-semibold text-xl text-[#272343] inline-block hover:text-[#28A5B9]  py-2 pt-4">Lorem ipsum dolor sit</a>
+             <p class="text-gray-900 text-sm">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea facere esse consectetur natus, aliquam error quam minima voluptatem cupiditate provident atque nobis nihil inventore praesentium ipsa dolorum molestiae dolorem nisi?
+                </p>
+            </div>
+            <!--Category and location -->
+            <div class="flex  items-center justify-between">
+                <span class="py-2 px-4
+                  focus:outline-none text-md font-semibold text-[#094839] inline-block">Puériculture</span>
+                <span
+                class="py-2 px-4 text-sm  text-gray-900 mr-1 flex flex-row justify-between items-center">
+                    <svg class="w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />  <circle cx="12" cy="10" r="3" /></svg>
+                    <span class="ml-1 font-semiblod text-md">Safi</span></span>
+            </div>
+
+            <!-- end Category and location -->
+        </div>
+        <!--end Card-->
+        <div class=" shadow-md rounded w-80 border border-2 border-[#094839]">
+            <!--Image and etat-->
+            <div class="relative">
+                <!--image -->
+                    <img class="w-full rounded-t-xl"
+                        src="{{ asset('image/wow.jpg') }}"
+                        alt="donnation">
+                        <div
+                        class=" absolute bottom-0 top-0 right-0 left-0
+                         opacity-25  ">
+                    </div>
+                    <!--Etat -->
+                    <div
+                        class="absolute bottom-8 left-0 bg-white px-4 py-2 font-bold text-[#272343] text-sm rounded-r-lg">
+                        Exclusivité
+                    </div>
+            </div>
+            <!--end Image -->
+            <!--title and descp-->
+            <div class="relative px-6 py-4">
+            <div class="absolute w-full top-0 left-0 translate-y-[-50%] flex items-center justify-center">
+            <img
+                alt="tania andrew"
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
+                class="relative inline-block h-12 w-12 cursor-pointer  object-cover object-center"
+                />
+                </div>
+
+            <p class="font-semibold text-xl text-[#272343] inline-block hover:text-[#28A5B9] transition duration-500 ease-in-out py-2 pt-4">Lorem ipsum dolor sit</a>
+             <p class="text-gray-900 text-sm">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea facere esse consectetur natus, aliquam error quam minima voluptatem cupiditate provident atque nobis nihil inventore praesentium ipsa dolorum molestiae dolorem nisi?
+                </p>
+            </div>
+            <!--Category and location -->
+            <div class="flex  items-center justify-between">
+                <span class="py-2 px-4
+                  focus:outline-none text-md font-semibold text-[#094839] inline-block">Puériculture</span>
+                <span
+                class="py-2 px-4 text-sm  text-gray-900 mr-1 flex flex-row justify-between items-center">
+                    <svg class="w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />  <circle cx="12" cy="10" r="3" /></svg>
+                    <span class="ml-1 font-semiblod text-md">Safi</span></span>
+            </div>
+
+            <!-- end Category and location -->
+        </div>
+        <!--end Card--><div class=" shadow-md rounded w-80 border border-2 border-[#094839]">
+            <!--Image and etat-->
+            <div class="relative">
+                <!--image -->
+                    <img class="w-full rounded-t-xl"
+                        src="{{ asset('image/wow.jpg') }}"
+                        alt="donnation">
+                        <div
+                        class=" absolute bottom-0 top-0 right-0 left-0
+                         opacity-25  ">
+                    </div>
+                    <!--Etat -->
+                    <div
+                        class="absolute bottom-8 left-0 bg-white px-4 py-2 font-bold text-[#272343] text-sm rounded-r-lg">
+                        Exclusivité
+                    </div>
+            </div>
+            <!--end Image -->
+            <!--title and descp-->
+            <div class="relative px-6 py-4">
+            <div class="absolute w-full top-0 left-0 translate-y-[-50%] flex items-center justify-center">
+            <img
+                alt="tania andrew"
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
+                class="relative inline-block h-12 w-12 cursor-pointer  object-cover object-center"
+                />
+                </div>
+
+            <p class="font-semibold text-xl text-[#272343] inline-block hover:text-[#28A5B9] transition duration-500 ease-in-out py-2 pt-4">Lorem ipsum dolor sit</a>
+             <p class="text-gray-900 text-sm">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea facere esse consectetur natus, aliquam error quam minima voluptatem cupiditate provident atque nobis nihil inventore praesentium ipsa dolorum molestiae dolorem nisi?
+                </p>
+            </div>
+            <!--Category and location -->
+            <div class="flex  items-center justify-between">
+                <span class="py-2 px-4
+                  focus:outline-none text-md font-semibold text-[#094839] inline-block">Puériculture</span>
+                <span
+                class="py-2 px-4 text-sm  text-gray-900 mr-1 flex flex-row justify-between items-center">
+                    <svg class="w-4 h-4"
+                    xmlns="http://www.w3.org/2000/svg" width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />  <circle cx="12" cy="10" r="3" /></svg>
+                    <span class="ml-1 font-semiblod text-md">Safi</span></span>
+            </div>
+
             <!-- end Category and location -->
         </div>
         <!--end Card-->
 
     </div>
+    <div class="flex justify-center items-center p-8">
+            <button class=" p-4 w-25 border text-white bg-[#E44A19] text-bold text-xl">View All Donations</button>
+
+    </div>
 </div>
-<!-- component -->
 
+<!-- END Section dons -->
+<!--separateure Green-->
+    <div class="w-full h-24 mb-16 bg-[#094839] flex gap-4 text-white text-3xl font-bold items-center justify-around">
+            <p><svg class="text-white w-10 h-10"
+            xmlns="http://www.w3.org/2000/svg" width="24"  height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg></p>
+            <p>Donate</p>
+            <p><svg class="text-white w-10 h-10"
+            xmlns="http://www.w3.org/2000/svg" width="24"  height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg></p>
+            <p>Support</p>
+            <p><svg class="text-white w-10 h-10"
+            xmlns="http://www.w3.org/2000/svg" width="24"  height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg></p>
+            <p>See Smile</p>
+            <p><svg class="text-white w-10 h-10"
+            xmlns="http://www.w3.org/2000/svg" width="24"  height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg></p>
 
+    </div>
+<!--END separateure -->
 
-
-
-    <!-- <footer class="bg-[#2292A3] text-white py-4">
-        <div class="container mx-auto text-center">
-            <p> &copy; 2024 D<i class="fa-solid fa-heart fa-xs" style="color: #D00000;"></i>NATION. All rights reserved.
+<!--Blog Section -->
+ <div class="grid h-full w-[80%] grid-cols-3 gap-8 mx-auto">
+    <h1 class=" col-span-3 text-center lg:text-3xl md:text-2xl font-extrabold leading-tight text-[#272343]">Our Recent Blog</h1>
+      <!-- CARD START -->
+      <div class="relative h-80 rounded-xl bg-[url('https://images.unsplash.com/photo-1713439242060-1bb7de4214ac?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
+        <div class="absolute flex h-full w-full flex-col justify-end gap-1 rounded-xl bg-neutral-800 bg-opacity-50 p-4">
+          <p class="text-sm font-black text-white border-black pl-1">23 March 2021</p>
+          <h1 class="text-5xl font-black text-white mb-8">Lorem Ipsum Dolor Sit Amut</h1>
+          <div class="flex items-center gap-6">
+            <button class="flex items-center h-10 gap-1  border-2 px-5 py-2 text-xs font-black text-white">
+              <span>Read More</span>
+              <svg class="w-4" fill="#ffff" viewBox="-8.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>arrow-top-right</title>
+                  <path d="M14.56 9.6c0-0.64-0.44-0.92-0.88-0.92v0h-9.64c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h7.68l-11.48 11.52c-0.32 0.32-0.32 0.84 0 1.2 0.16 0.16 0.4 0.24 0.6 0.24s0.44-0.080 0.6-0.24l11.44-11.44v7.68c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-9.72z"></path>
+                </g>
+              </svg>
+            </button>
+            <div class="h-10 flex items-center  bg-white bg-opacity-90 gap-2 p-2">
+              <div class="h-8 w-8  bg-[url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center"></div>
+              <p class="text-black text-xs font-bold px-1">John Mccan</p>
+            </div>
+          </div>
         </div>
-    </footer> -->
+      </div>
+      <!-- CARD END -->
+      <!-- CARD START -->
+      <div class="relative h-80 rounded-xl bg-[url('https://images.unsplash.com/photo-1713439242060-1bb7de4214ac?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
+        <div class="absolute flex h-full w-full flex-col justify-end gap-1 rounded-xl bg-neutral-800 bg-opacity-50 p-4">
+          <p class="text-sm font-black text-white border-black pl-1">23 March 2021</p>
+          <h1 class="text-5xl font-black text-white mb-8">Lorem Ipsum Dolor Sit Amut</h1>
+          <div class="flex items-center gap-6">
+            <button class="flex items-center h-10 gap-1  border-2 px-5 py-2 text-xs font-black text-white">
+              <span>Read More</span>
+              <svg class="w-4" fill="#ffff" viewBox="-8.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>arrow-top-right</title>
+                  <path d="M14.56 9.6c0-0.64-0.44-0.92-0.88-0.92v0h-9.64c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h7.68l-11.48 11.52c-0.32 0.32-0.32 0.84 0 1.2 0.16 0.16 0.4 0.24 0.6 0.24s0.44-0.080 0.6-0.24l11.44-11.44v7.68c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-9.72z"></path>
+                </g>
+              </svg>
+            </button>
+            <div class="h-10 flex items-center  bg-white bg-opacity-90 gap-2 p-2">
+              <div class="h-8 w-8  bg-[url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center"></div>
+              <p class="text-black text-xs font-bold px-1">John Mccan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- CARD END -->
+      <!-- CARD START -->
+      <div class="relative h-80 rounded-xl bg-[url('https://images.unsplash.com/photo-1713439242060-1bb7de4214ac?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
+        <div class="absolute flex h-full w-full flex-col justify-end gap-1 rounded-xl bg-neutral-800 bg-opacity-50 p-4">
+          <p class="text-sm font-black text-white border-black pl-1">23 March 2021</p>
+          <h1 class="text-5xl font-black text-white mb-8">Lorem Ipsum Dolor Sit Amut</h1>
+          <div class="flex items-center gap-6">
+            <button class="flex items-center h-10 gap-1  border-2 px-5 py-2 text-xs font-black text-white">
+              <span>Read More</span>
+              <svg class="w-4" fill="#ffff" viewBox="-8.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>arrow-top-right</title>
+                  <path d="M14.56 9.6c0-0.64-0.44-0.92-0.88-0.92v0h-9.64c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h7.68l-11.48 11.52c-0.32 0.32-0.32 0.84 0 1.2 0.16 0.16 0.4 0.24 0.6 0.24s0.44-0.080 0.6-0.24l11.44-11.44v7.68c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-9.72z"></path>
+                </g>
+              </svg>
+            </button>
+            <div class="h-10 flex items-center  bg-white bg-opacity-90 gap-2 p-2">
+              <div class="h-8 w-8  bg-[url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center"></div>
+              <p class="text-black text-xs font-bold px-1">John Mccan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- CARD END -->
+      <!-- CARD START -->
+      <div class="relative h-80 rounded-xl bg-[url('https://images.unsplash.com/photo-1713439242060-1bb7de4214ac?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
+        <div class="absolute flex h-full w-full flex-col justify-end gap-1 rounded-xl bg-neutral-800 bg-opacity-50 p-4">
+          <p class="text-sm font-black text-white border-black pl-1">23 March 2021</p>
+          <h1 class="text-5xl font-black text-white mb-8">Lorem Ipsum Dolor Sit Amut</h1>
+          <div class="flex items-center gap-6">
+            <button class="flex items-center h-10 gap-1  border-2 px-5 py-2 text-xs font-black text-white">
+              <span>Read More</span>
+              <svg class="w-4" fill="#ffff" viewBox="-8.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>arrow-top-right</title>
+                  <path d="M14.56 9.6c0-0.64-0.44-0.92-0.88-0.92v0h-9.64c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h7.68l-11.48 11.52c-0.32 0.32-0.32 0.84 0 1.2 0.16 0.16 0.4 0.24 0.6 0.24s0.44-0.080 0.6-0.24l11.44-11.44v7.68c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-9.72z"></path>
+                </g>
+              </svg>
+            </button>
+            <div class="h-10 flex items-center  bg-white bg-opacity-90 gap-2 p-2">
+              <div class="h-8 w-8  bg-[url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center"></div>
+              <p class="text-black text-xs font-bold px-1">John Mccan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- CARD END -->
+       <!-- CARD START -->
+       <div class="relative h-80 rounded-xl bg-[url('https://images.unsplash.com/photo-1713439242060-1bb7de4214ac?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
+        <div class="absolute flex h-full w-full flex-col justify-end gap-1 rounded-xl bg-neutral-800 bg-opacity-50 p-4">
+          <p class="text-sm font-black text-white border-black pl-1">23 March 2021</p>
+          <h1 class="text-5xl font-black text-white mb-8">Lorem Ipsum Dolor Sit Amut</h1>
+          <div class="flex items-center gap-6">
+            <button class="flex items-center h-10 gap-1  border-2 px-5 py-2 text-xs font-black text-white">
+              <span>Read More</span>
+              <svg class="w-4" fill="#ffff" viewBox="-8.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>arrow-top-right</title>
+                  <path d="M14.56 9.6c0-0.64-0.44-0.92-0.88-0.92v0h-9.64c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h7.68l-11.48 11.52c-0.32 0.32-0.32 0.84 0 1.2 0.16 0.16 0.4 0.24 0.6 0.24s0.44-0.080 0.6-0.24l11.44-11.44v7.68c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-9.72z"></path>
+                </g>
+              </svg>
+            </button>
+            <div class="h-10 flex items-center  bg-white bg-opacity-90 gap-2 p-2">
+              <div class="h-8 w-8  bg-[url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center"></div>
+              <p class="text-black text-xs font-bold px-1">John Mccan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- CARD END -->
+       <!-- CARD START -->
+       <div class="relative h-80 rounded-xl bg-[url('https://images.unsplash.com/photo-1713439242060-1bb7de4214ac?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
+        <div class="absolute flex h-full w-full flex-col justify-end gap-1 rounded-xl bg-neutral-800 bg-opacity-50 p-4">
+          <p class="text-sm font-black text-white border-black pl-1">23 March 2021</p>
+          <h1 class="text-5xl font-black text-white mb-8">Lorem Ipsum Dolor Sit Amut</h1>
+          <div class="flex items-center gap-6">
+            <button class="flex items-center h-10 gap-1  border-2 px-5 py-2 text-xs font-black text-white">
+              <span>Read More</span>
+              <svg class="w-4" fill="#ffff" viewBox="-8.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <title>arrow-top-right</title>
+                  <path d="M14.56 9.6c0-0.64-0.44-0.92-0.88-0.92v0h-9.64c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h7.68l-11.48 11.52c-0.32 0.32-0.32 0.84 0 1.2 0.16 0.16 0.4 0.24 0.6 0.24s0.44-0.080 0.6-0.24l11.44-11.44v7.68c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-9.72z"></path>
+                </g>
+              </svg>
+            </button>
+            <div class="h-10 flex items-center  bg-white bg-opacity-90 gap-2 p-2">
+              <div class="h-8 w-8  bg-[url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center"></div>
+              <p class="text-black text-xs font-bold px-1">John Mccan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- CARD END -->
+    </div>
+</div>
+<!--END Blog Section -->
+<footer class="mt-20 xl:mt-32 mx-auto w-full relative text-center  bg-[#094839] text-white">
+
+    <div class="px-6 py-8 md:py-14 xl:pt-20 xl:pb-12">
+        <h2 class="font-bold text-3xl xl:text-4xl  text-center">
+            Ready to Be part of our community at <span class="text-[#E44A19]">donor</span><span class="text-white">box</span> <br>make a difference today!
+
+        </h2>
+        <a class="mt-8 xl:mt-12 px-12 py-5 text-lg font-blod  inline-block bg-[#E44A19]  shadow-xl border border-transparent "
+        href="{{route('login')}}" >Get
+            started  <i class="fa-solid fa-arrow-right text-white"> </i></a>
+
+    </div>
+
+</footer>
 

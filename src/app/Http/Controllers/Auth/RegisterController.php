@@ -27,7 +27,7 @@ class RegisterController extends Controller
             'image_url' => 'required|image',
         ]);
 
-        $imagePath = $request->file('image_url')->store('uploads');
+        $imagePath = $request->file('image_url')->storeAs('public/uploads');
 
         $user = User::create([
             'name' => $request->name,

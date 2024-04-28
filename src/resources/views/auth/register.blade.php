@@ -1,24 +1,24 @@
 @include('master.header')
-<div class="relative min-h-screen flex items-center justify-center gap-8 py-12 px-4 sm:px-6 lg:px-8 bg-no-repeat bg-cover" style="background-image: url('{{ asset('image/register1.jpg') }}');">
+<div class="relative min-h-screen flex items-center justify-center gap-8 py-12 px-4 sm:px-6 lg:px-8 bg-no-repeat bg-cover bg-[url('{{asset('image/test.jpg')}}')]">
 
       <div class="absolute bg-black opacity-70 inset-0 z-0">
         <div class="px-4 py-2 mx-8 my-16 flex flex-row justify-start">
             <a href="{{url('/')}}"
-                class="inline-flex items-center border border-[#D00000] px-3 py-1.5 rounded-md text-[#D00000] hover:bg-black">
+                class="inline-flex items-center border border-white px-3 py-1.5 rounded-md text-white ">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18">
                     </path>
                 </svg>
-                <span class="ml-1 font-extrabold text-lg">Back</span>
+                <span class="ml-1 font-black text-lg"> Back</span>
             </a>
             </a>
         </div>
       </div>
       <!-- Role -->
-      <div class="hidden lg:flex flex-col items-center justify-center w-[30%] bg-white gap-4 mx-4 p-10 rounded-lg z-10">
-        <h1 class="text-2xl font-bold mb-6">Who you are ?</h1>
-        <button type='button' data-id="association" onclick='changeRole(event)' class='role transition-all border-[1px] border-[#03071E] shadow-sm rounded px-6 py-4 text-start flex items-center gap-4'>
-          <svg class="w-16" viewBox="0 0 24 24" id="company-small-24px" xmlns="http://www.w3.org/2000/svg" fill="#D00000" stroke="#D00000">
+      <div class="hidden lg:flex flex-col items-center justify-center w-[30%] bg-white gap-4 mx-4 p-10 rounded-lg z-10 ">
+        <h1 class="text-2xl font-bold mb-6 text-[#272343]">Who you are ?</h1>
+        <button type='button' data-id="association" onclick='changeRole(event)' class='role transition-all border-[1px] border-[#094839] shadow-sm rounded px-6 py-4 text-start flex items-center gap-4'>
+          <svg class="w-16" viewBox="0 0 24 24" id="company-small-24px" xmlns="http://www.w3.org/2000/svg" fill="#094839" stroke="#094839">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
             <g id="SVGRepo_iconCarrier">
@@ -27,11 +27,11 @@
             </g>
           </svg>
           <div>
-            <h1 class="text-2xl">Association</h1>
+            <h1 class="text-2xl text-[#272343]">Association</h1>
             <p class="text-sm text-gray-500">Select this if you are an organization looking to collaborate and make a positive impact as an association</p>
           </div>
         </button>
-        <button type='button' data-id="donor" onclick='changeRole(event)' class='role transition-all border-[1px] border-[#03071E] shadow-sm rounded px-6 py-4 text-start flex items-center gap-4'>
+        <button type='button' data-id="donor" onclick='changeRole(event)' class='role transition-all border-[1px] border-[#094839] shadow-sm rounded px-6 py-4 text-start flex items-center gap-4'>
           <svg class="w-16" height="30px" width="30px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 503.467 503.467" xml:space="preserve" fill="#000000">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -45,44 +45,44 @@
             </g>
           </svg>
           <div>
-            <h1 class="text-2xl">Donor</h1>
+            <h1 class="text-2xl text-[#272343]">Donor</h1>
             <p class="text-sm text-gray-500">Select this if you are willing to contribute and help people in need as a donor</p>
           </div>
         </button>
-        <button type='button' data-id="user" onclick='changeRole(event)' class='role transition-all border-[1px] border-[#03071E] shadow-sm rounded px-6 py-4 text-start flex items-center gap-4'>
-          <svg class="w-16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#D00000">
+        <button type='button' data-id="user" onclick='changeRole(event)' class='role transition-all border-[1px] border-[#094839] shadow-sm rounded px-6 py-4 text-start flex items-center gap-4'>
+          <svg class="w-16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#094839">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
             <g id="SVGRepo_iconCarrier">
-              <circle cx="12" cy="6" r="4" fill="#D00000"></circle>
-              <path d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z" fill="#D00000"></path>
+              <circle cx="12" cy="6" r="4" fill="#094839"></circle>
+              <path d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z" fill="#094839"></path>
             </g>
           </svg>
           <div>
-            <h1 class="text-2xl">Beneficiary</h1>
+            <h1 class="text-2xl text-[#272343]">Beneficiary</h1>
             <p class="text-sm text-gray-500">Select this if you are in need of support and seeking assistance as a beneficiary</p>
           </div>
         </button>
       </div>
       <!--End Role-->
 
-      <div class="max-w-xl w-full space-y-8 p-10 bg-white rounded-md shadow-lg z-10">
+      <div class="max-w-xl w-full space-y-8 p-10 bg-white rounded-md shadow-lg z-10 ">
         <div class="grid gap-16 grid-cols-1">
           <div class="flex flex-col">
             <div class="flex flex-col sm:flex-row items-center">
-              <h1 class="block w-full text-center text-2xl font-bold mb-6">Be part of our community at Donorbox and make a difference today!</h1>
+              <h1 class="block w-full text-center text-2xl font-bold mb-6 text-[#272343]">Be part of our community at <span class="text-[#E44A19]">donor</span><span class="text-[#272343]">box</span></h1>
               <div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
             </div>
             <div class="mt-5">
                 <form id="signup-form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="flex items-center justify-center">
-                  <label for="profile_image" class="w-24 h-24 rounded-full cursor-pointer flex items-center justify-center border-2 border-dashed border-[#03071E]" id="profilePictureLabel">
+                  <label for="profile_image" class="w-24 h-24 rounded-full cursor-pointer flex items-center justify-center border-2 border-dashed border-[#094839]" id="profilePictureLabel">
                     <svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" id="plusIcon" xmlns="http://www.w3.org/2000/svg" stroke="#D00000" onclick="document.getElementById('image_url').click();">
                       <g id="SVGRepo_bgCarrier" stroke-width="0" />
                       <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
                       <g id="SVGRepo_iconCarrier">
-                        <path d="M6 12H18M12 6V18" stroke="#D00000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M6 12H18M12 6V18" stroke="#E44A19" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                       </g>
                     </svg>
                   </label>
@@ -90,7 +90,7 @@
                 </div>
                 <!-- Mobile Role -->
                 <div class="flex items-center justify-center lg:hidden bg-white gap-2 p-2 rounded-lg z-10 mt-6">
-                  <button type='button' data-id="association" onclick='changeRole(event)' class='role transition-all border-[1px] border-[#03071E] shadow-sm rounded p-2 min-w-24 h-16 text-start flex flex-col items-center gap-2'>
+                  <button type='button' data-id="association" onclick='changeRole(event)' class='role transition-all border-[1px] border-[#094839] shadow-sm rounded p-2 min-w-24 h-16 text-start flex flex-col items-center gap-2'>
                     <svg class="w-8" viewBox="0 0 24 24" id="company-small-24px" xmlns="http://www.w3.org/2000/svg" fill="#D00000" stroke="#D00000">
                       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                       <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -101,7 +101,7 @@
                     </svg>
                     <h1 class="text-sm">Association</h1>
                   </button>
-                  <button type='button' data-id="donor" onclick='changeRole(event)' class='role transition-all border-[1px] border-[#03071E] shadow-sm rounded p-2 min-w-24 h-16 text-start flex flex-col items-center gap-2'>
+                  <button type='button' data-id="donor" onclick='changeRole(event)' class='role transition-all border-[1px] border-[#094839] shadow-sm rounded p-2 min-w-24 h-16 text-start flex flex-col items-center gap-2'>
                     <svg class="w-8" height="30px" width="30px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 503.467 503.467" xml:space="preserve" fill="#000000">
                       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                       <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -116,7 +116,7 @@
                     </svg>
                     <h1 class="text-sm">Donor</h1>
                   </button>
-                  <button type='button' data-id="user" onclick='changeRole(event)' class='role transition-all border-[1px] border-[#03071E] shadow-sm rounded p-2 min-w-24 h-16 text-start flex flex-col items-center gap-2'>
+                  <button type='button' data-id="user" onclick='changeRole(event)' class='role transition-all border-[1px] border-[#094839] shadow-sm rounded p-2 min-w-24 h-16 text-start flex flex-col items-center gap-2'>
                     <svg class="w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#D00000">
                       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                       <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -132,46 +132,46 @@
                 <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                     <input id="role" type='hidden' value='' name='role' />
                     <div>
-                      <label class="font-extrabold" for="name">Username</label>
-                      <input id="name" type="text" name="name" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                      <label class="font-extrabold text-[#2D3E4E]" for="name">Username</label>
+                      <input id="name" type="text" name="name" class="block w-full px-4 py-2 mt-2 bg-white shadow border border-gray-400 rounded-lg focus:border-[#E44A19] focus:outline-none ">
                     </div>
                     <div>
-                      <label class="font-extrabold" for="email">Email Address</label>
-                      <input id="email" type="email" name="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                      <label class="font-extrabold text-[#2D3E4E]" for="email">Email Address</label>
+                      <input id="email" type="email" name="email" class="block w-full px-4 py-2 mt-2 bg-white shadow border border-gray-400 rounded-lg focus:border-[#E44A19] focus:outline-none ">
                     </div>
                     <div>
-                      <label class="font-extrabold" for="password">Password</label>
-                      <input id="password" type="password" name="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                      <label class="font-extrabold text-[#2D3E4E]" for="password">Password</label>
+                      <input id="password" type="password" name="password" class="block w-full px-4 py-2 mt-2 bg-white shadow border border-gray-400 rounded-lg focus:border-[#E44A19] focus:outline-none ">
                     </div>
                     <div>
-                      <label class="font-extrabold" for="gender">Gender</label>
-                      <select id="gender" name="gender" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                      <label class="font-extrabold text-[#2D3E4E]" for="gender">Gender</label>
+                      <select id="gender" name="gender" class="block w-full px-4 py-2 mt-2 bg-white shadow border border-gray-400 rounded-lg focus:border-[#E44A19] focus:outline-none ">
                         <option>female</option>
                         <option>male</option>
                       </select>
                     </div>
                     <div>
-                      <label class="font-extrabold" for="phone">Cell Phone</label>
-                      <input id="phone" type="tel" name="phone" class="block w-full py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                      <label class="font-extrabold text-[#2D3E4E]" for="phone">Cell Phone</label>
+                      <input id="phone" type="tel" name="phone" class="block w-full py-2 mt-2 bg-white shadow border border-gray-400 rounded-lg focus:border-[#E44A19] focus:outline-none ">
                     </div>
                     <div>
-                      <label class="font-extrabold" for="date_of_birth">Birthday</label>
-                      <input id="date_of_birth" type="date" name="date_of_birth" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                      <label class="font-extrabold text-[#2D3E4E]" for="date_of_birth">Birthday</label>
+                      <input id="date_of_birth" type="date" name="date_of_birth" class="block w-full px-4 py-2 mt-2 bg-white shadow border border-gray-400 rounded-lg focus:border-[#E44A19] focus:outline-none ">
                     </div>
                     <div>
-                      <label class="font-extrabold" for="location">Location</label>
-                      <select id="city" name="location" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring">
+                      <label class="font-extrabold text-[#2D3E4E]" for="location">Location</label>
+                      <select id="city" name="location" class="block w-full px-4 py-2 mt-2 text-black bg-white border border-gray-400 rounded-md focus:border-blue-500 focus:outline-none focus:ring">
                         <option value="" disabled selected>Select a city</option>
                       </select>
                     </div>
                     <div>
-                      <label class="font-extrabold" for="bio">Tell us about you</label>
-                      <textarea id="bio" name="bio" type="textarea" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-[#03071E] rounded-md focus:border-blue-500 focus:outline-none focus:ring"></textarea>
+                      <label class="font-extrabold text-[#2D3E4E]" for="bio">Tell us about you</label>
+                      <textarea id="bio" name="bio" type="textarea" class="block w-full px-4 py-2 mt-2 bg-white shadow border border-gray-400 rounded-lg focus:border-[#E44A19] focus:outline-none "></textarea>
                     </div>
                   </div>
                   <button  type="submit" class="inline-block w-full py-4 px-6 mb-6 mt-4 text-center text-lg leading-6 text-white font-extrabold rounded-lg
-                          px-6 py-3 block shadow-xl bg-[#D00000]">Register</button>
-                  <p class="text-center font-extrabold">Already have an account? <a class="text-[#D00000] " href="{{ route('login') }}">Sign in</a></p>
+                          px-6 py-3 block shadow-xl bg-[#E44A19]">Register</button>
+                  <p class="text-center font-extrabold text-[#272343]">Already have an account? <a class="text-[#E44A19] " href="{{ route('login') }}">Sign in</a></p>
                 </form>
               </div>
             </div>

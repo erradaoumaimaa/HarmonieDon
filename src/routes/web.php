@@ -6,6 +6,7 @@ use App\Http\Controllers\AssociationController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,7 +51,9 @@ Route::middleware('can:donor')->group(function() {
     Route::put('/donors/donations/{id}/update', [DonationController::class, 'update'])->name('donors.update');
     /**Delete */
     Route::delete('/donors/donations/{id}/destroy', [DonationController::class, 'destroy'])->name('donors.destroy');
-    
+
+    Route::get('/donors/donations', [DonorController::class, 'donations'])->name('donors.donations');
+
 });
 
 /** association */
@@ -64,4 +67,15 @@ Route::middleware('can:user')->group(function() {
     Route::get('users', [UserController::class, 'index'])->name('users.index');
 
 
+});
+
+Route::get('blog',function(){
+    return view('blog.details');
+});
+Route::get('donation',function(){
+    return view('donation.details');
+});
+/** chat */
+Route::middleware('auth')->group(function() {
+    Route::get('/chat/{id}', [MessageController::class, 'allMessages'])->name('messages.index');
 });
