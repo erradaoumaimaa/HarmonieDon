@@ -26,4 +26,13 @@ class UserController extends Controller
 
         return redirect()->back();
     }
+
+    public function notifCount(User $user) {
+        $count = $user->notifications()->count();
+        // dd($count);
+
+        return response()->json([
+            'count' => $count
+        ]);
+    }
 }

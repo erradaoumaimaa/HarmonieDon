@@ -58,7 +58,14 @@
                 @endif
                 </form>
           </div>
-          <button class="w-full p-3 rounded-xl border-4 border-dashed border-orange-600 bg-orange-600 bg-opacity-10 text-4xl font-black text-orange-600">Apply</button>
+            <form class="w-full" action="{{ route('donation.apply', $donation->id) }}" method="post">
+                @csrf
+                @if(!$reservation)
+                    <button type="submit" class="w-full p-3 rounded-xl border-4 border-dashed border-orange-600 bg-orange-600 bg-opacity-10 text-4xl font-black text-orange-600">Apply</button>
+                @else
+                    <button type="submit" class="w-full p-3 rounded-xl border-4 border-orange-600 bg-orange-600 text-4xl font-black text-white">Applied</button>
+                @endif
+            </form>
         </div>
       </div>
     </div>

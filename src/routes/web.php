@@ -80,10 +80,12 @@ Route::middleware('can:association')->group(function() {
 /** user */
 Route::middleware('can:user')->group(function() {
     Route::get('users', [UserController::class, 'index'])->name('users.index');
-    
+    Route::post('donation/{donation}/apply', [ReservationController::class, 'apply'])->name('donation.apply');
+
 });
 
 Route::post('/{user}/follow', [UserController::class, 'follow'])->name('user.follow')->middleware('auth');
+Route::get('/notifications/count/{user}', [UserController::class, 'notifCount'])->name('user.notifications');
 
 /** comment */
 Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store')->middleware('auth');

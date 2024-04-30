@@ -1,4 +1,5 @@
 @include('master.header')
+<p id='user-id' class='hidden'>{{ auth()->user()->id }}</p>
 <nav
   class="block w-full max-w-screen-full px-4 py-2 mx-auto text-white bg-[#094839] border-b-4 border-[#E44A19]  backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4">
   <div class="container flex items-center justify-between mx-auto ">
@@ -87,12 +88,20 @@ xmlns="http://www.w3.org/2000/svg" width="14"  height="15"  viewBox="0 0 24 24" 
 </li>
  <!--Notification link-->
         <li
-          class="flex items-center p-1 font-sans text-sm antialiased font-semibold leading-normal gap-x-2 ">
-          <svg class="text-white w-5 h-5"
-xmlns="http://www.w3.org/2000/svg" width="24"  height="24"   viewBox="0 0 24 24"  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />  <path d="M9 17v1a3 3 0 0 0 6 0v-1" /></svg>
-          <a href="#" class="flex items-center text-white">
-            Notifications
-          </a>
+          class="relative">
+          <button class="flex items-center p-1 font-sans text-sm antialiased font-semibold leading-normal gap-x-2 " onclick="showNotifs()">
+            <div class="relative w-5 h-5">
+                <svg class="text-white w-full h-full" xmlns="http://www.w3.org/2000/svg" width="24"  height="24"   viewBox="0 0 24 24"  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />  <path d="M9 17v1a3 3 0 0 0 6 0v-1" /></svg>
+                <div id='notif-count' class="absolute top-0 right-0 translate-x-[50%] translate-y-[-50%] w-3 h-3 bg-[#D00000] text-[8px] text-white rounded-full">{{ auth()->user()->notifications()->count() }}</div>
+            </div>
+            <p class="flex items-center text-white">
+                Notifications
+            </p>
+          </button>
+
+          <div class="absolute top-[100%] rounded left-0 w-full bg-[#dedded]">
+                
+            </div>
         </li>
 
 
@@ -133,6 +142,63 @@ xmlns="http://www.w3.org/2000/svg" width="24"  height="24"   viewBox="0 0 24 24"
     </div>
 
 </nav>
+
+<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/laravel-echo@1.11.2/dist/echo.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Initialize Laravel Echo -->
+    <script>
+        // Initialize Laravel Echo with Pusher
+        // window.Echo = new Echo({
+        //     broadcaster: 'pusher',
+        //     key: 'YOUR_PUSHER_APP_KEY',
+        //     cluster: 'YOUR_PUSHER_APP_CLUSTER',
+        //     encrypted: true, // If your Pusher setup uses encryption
+        // });
+
+        // // Subscribe to a private channel and listen for events
+        // window.Echo.private('App.Models.User.45')
+        //     .listen('App\\Notifications\\NewReservation', (data) => {
+        //         console.log('New reservation notification received:', data);
+        //         // Handle the notification data as needed
+        //     });
+
+        // window.Pusher = require('pusher-js');
+        window.Echo = new Echo({
+            broadcaster: 'pusher',
+            key: '50925d80ae62a3856a6b',
+            cluster: 'eu',
+            forceTLS: true
+        });
+
+        const fetchNotificationCount = async (id) => {
+            // console.log(id);
+
+            try {
+                const response = await axios.get(`http://127.0.0.1:8000/notifications/count/${id}`); // Assuming you have an API endpoint to fetch the notification count
+                const notificationCount = response.data.count; // Assuming the API returns the count as 'count'
+                document.getElementById('notif-count').textContent = notificationCount;
+            } catch (error) {
+                console.error('Error fetching notification count:', error);
+            }
+        }
+
+        const id = document.getElementById('user-id').innerText
+        // console.log(id)
+
+        window.Echo.private(`App.Models.User.${id}`)
+        .notification((notification) => {
+            console.log('Notification received:', notification);
+            // console.log(id)
+            fetchNotificationCount(id)
+
+
+            // document.getElementById('notif-count').innerText =
+
+        });
+    </script>
+
 <script>
     document.getElementById('toggleMenu').addEventListener('click', function () {
         var menu = document.getElementById('menuItems');

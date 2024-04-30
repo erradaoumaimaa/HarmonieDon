@@ -14,9 +14,12 @@ class DonationController extends Controller
         $donation = $donation->with('user', 'category')->first();
 
         $user = auth()->user();
+        $reservation = $user->reservations()->where('donation_id', $donation->id)->first();
+
+        $user = auth()->user();
         $isFollowed = $user->follows()->where('followed_id', $donation->user->id)->first();
-        
-        return view('donation.details', compact('donation', 'isFollowed'));
+
+        return view('donation.details', compact('donation', 'isFollowed', 'reservation'));
     }
     public function create() {
         $categories = Category::all();
