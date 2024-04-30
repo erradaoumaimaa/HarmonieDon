@@ -14,6 +14,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('title');
+            $table->string('image')->nullable();
             $table->text('content');
             $table->integer('reading_time');
             $table->unsignedBigInteger('views_count')->default(0);

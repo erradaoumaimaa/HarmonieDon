@@ -67,8 +67,25 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
                 </svg>
 
-			      </li>
-                   <!--Notification link-->
+</li>
+ <!--Gestion Reservation link-->
+ <li class="flex items-center p-1 font-sans text-sm antialiased font-semibold leading-normal gap-x-2 {{ request()->routeIs('donors.reservations') ? 'text-[#E44A19]' : '' }}">
+
+  <svg class="{{ request()->routeIs('donors.reservations') ? 'text-[#E44A19]' : 'text-white' }} w-5 h-5"
+xmlns="http://www.w3.org/2000/svg" width="14"  height="15"  viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <rect x="4" y="6" width="4" height="5" rx="1" />  <line x1="6" y1="4" x2="6" y2="6" />  <line x1="6" y1="11" x2="6" y2="20" />  <rect x="10" y="14" width="4" height="5" rx="1" />  <line x1="12" y1="4" x2="12" y2="14" />  <line x1="12" y1="19" x2="12" y2="20" />  <rect x="16" y="5" width="4" height="6" rx="1" />  <line x1="18" y1="4" x2="18" y2="5" />  <line x1="18" y1="11" x2="18" y2="20" /></svg>
+  <a href="{{ route('donors.reservations') }}" class="flex items-center {{ request()->routeIs('donors.reservations') ? 'text-[#E44A19]' : 'text-white' }}">
+    Reservations
+  </a>
+</li>
+ <!--Fil-->
+ <li class="text-[#8095A8]">
+                <svg class="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                </svg>
+
+</li>
+ <!--Notification link-->
         <li
           class="flex items-center p-1 font-sans text-sm antialiased font-semibold leading-normal gap-x-2 ">
           <svg class="text-white w-5 h-5"

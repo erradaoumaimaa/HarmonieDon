@@ -13,6 +13,7 @@ class BlogPost extends Model
         'user_id',
         'title',
         'content',
+        'image',
         'reading_time',
         'views_count',
     ];
@@ -25,5 +26,10 @@ class BlogPost extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }

@@ -8,6 +8,16 @@ use Illuminate\Support\Facades\Storage;
 
 class DonationController extends Controller
 {
+
+
+    public function show(Donation $donation) {
+        $donation = $donation->with('user', 'category')->first();
+
+        $user = auth()->user();
+        $isFollowed = $user->follows()->where('followed_id', $donation->user->id)->first();
+        
+        return view('donation.details', compact('donation', 'isFollowed'));
+    }
     public function create() {
         $categories = Category::all();
         return view('donors.create', compact('categories'));
@@ -25,9 +35,9 @@ class DonationController extends Controller
             'donor_availability' => 'required|string',
         ]);
 
-        $imageName = time() . '.' . $request->image->extension();
+        // $imageName = time() . '.' . $request->image->extension();
 
-        if ($request->file('image')->storeAs('public/donations', $imageName)) {
+        if ($imageName = $request->file('image')->store('donations')) {
 
 
             $donation = Donation::create([
@@ -38,9 +48,9 @@ class DonationController extends Controller
                 'address' => $validatedAttributes['address'],
                 'item_condition' => $validatedAttributes['item_condition'],
                 'donor_availability' => $validatedAttributes['donor_availability'],
-                'image' => 'donations/' . $imageName
+                'image' => $imageName
             ]);
-            dd($donation);
+            // dd($donation);
 
             if ($donation) {
                 session()->flash('success', 'Donation created successfully!');
@@ -48,7 +58,7 @@ class DonationController extends Controller
                 session()->flash('error', 'Failed to create new donation');
             }
         } else {
-            // Debugging message
+
             dd('Failed to upload image');
             session()->flash('error', 'Failed to upload image');
         }
@@ -56,12 +66,10 @@ class DonationController extends Controller
         return redirect()->route('donors.index');
     }
 
-
-
     public function edit($id) {
         $categories = Category::all();
-        $donation = Donation::findOrFail($id);
-        return view('donors.edit', compact('categories', 'donation'));
+        $donations = Donation::findOrFail($id);
+        return view('donors.edit', compact('categories', 'donations'));
     }
 
     public function update(Request $request, $id) {

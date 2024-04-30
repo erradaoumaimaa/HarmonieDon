@@ -70,4 +70,24 @@ class User extends Authenticatable
     {
         return $this->hasMany(Message::class);
     }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function followers()
+    {
+        return $this->hasMany(Follow::class, 'followed_id');
+    }
+
+    public function follows()
+    {
+        return $this->hasMany(Follow::class, 'follower_id');
+    }
 }

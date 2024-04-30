@@ -17,6 +17,15 @@ class DonorController extends Controller
     public function donations() {
 
         $donations = auth()->user()->donations()->with('category')->get();
+        
         return view('donors.donations' , compact('donations'));
+    }
+
+    public function reservations()
+    {
+        $user = auth()->user();
+        $reservations = $user->donations()->with('reservations.user', 'reservations.donation')->get()->pluck('reservations')->flatten();
+        // dd($reservations);
+        return view("donors.reservations", compact('reservations'));
     }
 }

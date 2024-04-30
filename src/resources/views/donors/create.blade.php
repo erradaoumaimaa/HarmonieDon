@@ -18,7 +18,7 @@
     <h2 class="text-2xl font-semibold mb-4 text-[#272343]">Make a Generous Contribution Today</h2>
     <aside class="p-4 lg:hidden">
     <div class="rounded bg-[#FFE353] p-2">
-      <h2 class="my-2 text-2xl font-semibold text-[#272343]">Instructions :</h2>
+      <h2 class="my-2 text-2xl font-semibold text-[#272343]"> Instructions :</h2>
       <ul class="list-inside list-disc text-[#272343]">
         <li>Provide detailed and accurate information about your donation, including title, description, address...</li>
         <li>Upload a clear and appropriate image of the donation item.</li>
