@@ -1,9 +1,9 @@
-<!--Nav Donor -->
-@include('master.navDonor')
+
+@include('master.nav')
 <section class="min-h-screen w-full space-y-12 p-16">
   <div class="flex h-full w-full gap-16">
     <div class="flex w-[50%] flex-col items-center justify-center gap-4">
-      <div class="h-full w-full rounded-xl bg-[url('https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center"></div>
+      <div class="h-full w-full rounded-xl bg-[url({{ asset('storage/' . $donation->image)}})] bg-cover bg-center"></div>
     </div>
     <div class="flex h-full w-[50%] flex-col items-start gap-3">
       <p class="rounded-sm bg-orange-600 p-4 py-2 font-bold text-white">{{ $donation->category->name }}</p>
@@ -21,7 +21,7 @@
         <div class="flex w-full items-center justify-evenly gap-4">
           <div class="w-[50%] space-y-2">
             <h2 class="w-full rounded-md bg-green-900 bg-opacity-10 p-1 text-center font-bold text-green-900">Etat</h2>
-            <p class="w-full rounded-md border-2 border-green-900 p-1 text-center">{{ ucfirst($donation->status) }}</p>
+            <p class="w-full rounded-md border-2 border-green-900 p-1 text-center">{{ ucfirst($donation->item_condition) }}</p>
           </div>
           <hr class="h-full border-2" />
           <div class="w-[50%] space-y-2">
@@ -46,7 +46,7 @@
         <div class="w-full flex justify-between items-start gap-8">
           <div class="flex w-[50%] flex-col items-center gap-3 rounded-md bg-green-900 bg-opacity-10 p-4">
             <div class="flex w-full items-center gap-3">
-              <div class="h-12 w-12 rounded-full border-2 border-green-900 bg-[url({{ $donation->user->image ? asset('storage/' . $donation->user->image) : 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }})] bg-cover bg-center"></div>
+              <div class="h-12 w-12 rounded-full border-2 border-green-900 bg-[url({{ $donation->user->image_url ? asset('storage/' . $donation->user->image_url) : 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }})] bg-cover bg-center"></div>
               <p class="font-semibold text-black">{{ $donation->user->name }}</p>
             </div>
             <form class="w-full" action="{{ route('user.follow', $donation->user->id) }}" method="post">

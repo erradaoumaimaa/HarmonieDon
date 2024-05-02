@@ -11,13 +11,14 @@ class DonationController extends Controller
 
 
     public function show(Donation $donation) {
-        $donation = $donation->with('user', 'category')->first();
-
+        $donation = $donation->load('user', 'category');
         $user = auth()->user();
-        $reservation = $user->reservations()->where('donation_id', $donation->id)->first();
-
-        $user = auth()->user();
-        $isFollowed = $user->follows()->where('followed_id', $donation->user->id)->first();
+        $reservation = null;
+        $isFollowed = null;
+        if($user){
+            $reservation = $user->reservations()->where('donation_id', $donation->id)->first();
+            $isFollowed = $user->follows()->where('followed_id', $donation->user->id)->first();
+        }
 
         return view('donation.details', compact('donation', 'isFollowed', 'reservation'));
     }
@@ -34,7 +35,7 @@ class DonationController extends Controller
             'address' => 'required|string',
             'item_condition' => 'required|string',
             'categorie_id' => 'required|exists:categories,id',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif',
             'donor_availability' => 'required|string',
         ]);
 

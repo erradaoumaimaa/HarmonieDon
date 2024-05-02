@@ -1,5 +1,5 @@
 <!--Nav Donor -->
-@include('master.navDonor')
+@include('master.nav')
 <div class="bg-[#FBF6F4] pt-8">
 <div class="text-center p-10 w-[70%] flex justify-between items-center mx-auto rounded-xl bg-cover bg-[url('{{asset('image/hero.jpg')}}')]">
     <h1 class="font-black text-4xl text-white text-start mb-2 ">Manage Reservations</h1>
@@ -38,13 +38,16 @@
         @foreach ($reservations as $reservation)
         <tr class="bg-white border-b-2 border-orange-500">
           <td class="px-16 py-2 flex flex-row items-center">
-            {{$reservation->id}}
+
+          <div class="flex-shrink-0 h-10 w-10">
+                        <img class="h-10 w-10 rounded-full" src="{{ asset('storage/' .$reservation->user->image_url) }}" alt="User Image">
+                    </div>
           </td>
           <td>
             <span class="text-center ml-2 font-semibold">{{$reservation->user->name}}</span>
           </td>
 
-          <td class="px-16 py-2">
+          <td class="px-16 py-2 truncate">
             <span>{{$reservation->donation->title}}</span>
           </td>
           <td class="px-16 py-2">

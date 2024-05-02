@@ -1,25 +1,31 @@
-@include('master.navDonor')
+@include('master.nav')
 <div class="bg-[#FBF6F4] pt-8">
-<div class="text-center p-10 w-[70%] flex justify-between items-center mx-auto rounded-xl bg-cover bg-[url('{{asset('image/hero.jpg')}}')]">
+<div class="text-center p-10 w-[70%] flex justify-between items-center mx-auto rounded-xl bg-cover" style="background-image: url('{{ asset('image/hero.jpg') }}')">
     <h1 class="font-black text-4xl text-white text-start mb-2">Manage Your Donations</h1>
-    <form action="">
-         <!-- search -->
-         <div class="w-50 max-w-xs xl:max-w-lg 2xl:max-w-2xl border border-[#094839] rounded-full hidden xl:flex items-center bg-[#094839]">
-                    <select class="bg-[#094839] rounded-full uppercase font-bold text-sm p-4 mr-4 text-white" name="" id=""
-                    >
-                      <option>All Categories</option>
-                    </select>
-                    <input class="border-l border-[#094839] bg-[#094839] font-semibold text-sm pl-4 placeholder-white" type="text" placeholder="Search...">
-                    <svg class="ml-auto h-5 px-4 text-white" aria-hidden="true" focusable="false" data-prefix="far" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-search fa-w-16 fa-9x"><path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg>
-           </div>
-    </form>
+    <form action="{{ route('donors.donations') }}" method="GET" class="flex flex-col md:flex-row gap-3">
+        <div class="flex">
+            <input type="text" placeholder="Search" name="q" class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-[#094839] focus:outline-none focus:border-[#094839]">
+            <button type="submit" class="bg-[#094839] text-white rounded-r px-2 md:px-3 py-0 md:py-1">Search</button>
+        </div>
+        <form action="{{ route('donors.donations') }}" method="GET" class="flex flex-col md:flex-row gap-3">
+    <select id="category" name="category" class="w-full h-10 border-2 border-[#094839] focus:outline-none focus:border-[#094839] text-[#094839] rounded px-2 md:px-3 py-0 md:py-1 tracking-wider">
+        <option value="">All Categories</option>
+        @foreach($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+        @endforeach
+    </select>
+    <button type="submit" class="bg-[#094839] text-white rounded px-2 md:px-3 py-0 md:py-1">Filter</button>
+</form>
+
+</form>
 </div>
+
 
 <section class="w-[70%] mx-auto grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center gap-24 mt-10 mb-5">
     @foreach($donations as $donation)
     <div class="relative w-64 bg-[#EFF0F3] shadow-md rounded-xl">
         <a href="#">
-            <img src="{{ asset('image/cat7.jpg') }}" alt="Product" class="h-72 w-64 object-cover rounded-t-xl" />
+            <img src="{{ asset('storage/' . $donation->image) }}" alt="Product" class="h-72 w-64 object-cover rounded-t-xl" />
             <div class="relative px-4 py-3">
                 <div class="absolute w-full top-0 left-0 translate-y-[-50%] flex items-center justify-center">
                     <p class="p-2 bg-[#E44A19] text-white px-4 rounded-lg">{{$donation->status}}</p>

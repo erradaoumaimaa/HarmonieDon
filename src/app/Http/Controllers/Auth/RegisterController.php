@@ -24,11 +24,13 @@ class RegisterController extends Controller
             'gender' => 'required|in:male,female',
             'phone' => 'nullable|string',
             'bio' => 'nullable|string',
+            'location' => 'nullable|string',
             'image_url' => 'required|image',
         ]);
 
         $imagePath = $request->file('image_url')->store('uploads');
 
+        // dd($request->location);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -37,6 +39,7 @@ class RegisterController extends Controller
             'gender' => $request->gender,
             'phone' => $request->phone,
             'bio' => $request->bio,
+            'location' => $request->location,
             'image_url' => $imagePath,
             'role' => $role,
         ]);

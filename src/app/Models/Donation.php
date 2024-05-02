@@ -36,4 +36,14 @@ class Donation extends Model
     {
         return $this->hasMany(Reservation::class);
     }
+    public function scopeFilter($query, array $filters) {
+
+        $query->when($filters['q'] ?? false,
+            fn($query, $q) => $query->where('title', 'LIKE', '%' . $q . '%')
+        );
+
+        $query->when($filters['category'] ?? false,
+            fn($query, $category) => $query->whereHas('category', fn($query) => $query->where('id', $category))
+        );
+    }
 }

@@ -1,5 +1,5 @@
 <!--Nav Donor -->
-@include('master.navDonor')
+@include('master.nav')
 
 
 <section class='w-[100vw] flex bg-[#FBF6F4]'>
@@ -55,161 +55,39 @@
 <!--END separateure -->
 <!--Blog Section -->
 <div class="grid h-full w-[80%] grid-cols-3 gap-8 mx-auto">
-<h1 class=" col-span-3 text-center lg:text-4xl md:text-2xl font-extrabold leading-tight text-[#272343]">Our Recent Blog</h1>
+    <h1 class=" col-span-3 text-center lg:text-3xl md:text-2xl font-extrabold leading-tight text-[#272343]">Our Recent Blog</h1>
       <!-- CARD START -->
-      <div class="relative h-80 rounded-xl bg-[url('https://images.unsplash.com/photo-1713439242060-1bb7de4214ac?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
+      @foreach($blogs as $blog)
+      <div class="relative h-80 rounded-xl bg-[url({{ asset('storage/' . $blog->image) }})] bg-cover bg-center">
         <div class="absolute flex h-full w-full flex-col justify-end gap-1 rounded-xl bg-neutral-800 bg-opacity-50 p-4">
-          <p class="text-sm font-black text-white border-black pl-1">23 March 2021</p>
-          <h1 class="text-5xl font-black text-white mb-8">Lorem Ipsum Dolor Sit Amut</h1>
+          <p class="text-sm font-black text-white border-black pl-1">{{ $blog->created_at->format('d F Y') }}</p>
+          <h1 class="text-5xl font-black text-white mb-8">{{ $blog->title }}</h1>
           <div class="flex items-center gap-6">
-            <button class="flex items-center h-10 gap-1  border-2 px-5 py-2 text-xs font-black text-white">
-              <span>Read More</span>
-              <svg class="w-4" fill="#ffff" viewBox="-8.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                  <title>arrow-top-right</title>
-                  <path d="M14.56 9.6c0-0.64-0.44-0.92-0.88-0.92v0h-9.64c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h7.68l-11.48 11.52c-0.32 0.32-0.32 0.84 0 1.2 0.16 0.16 0.4 0.24 0.6 0.24s0.44-0.080 0.6-0.24l11.44-11.44v7.68c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-9.72z"></path>
-                </g>
-              </svg>
-            </button>
+          <a href="{{ route('blog.show', $blog->id) }}" class="flex items-center h-10 gap-1  border-2 px-5 py-2 text-xs font-black text-white">
+                <span>Read More</span>
+                <svg class="w-4" fill="#ffff" viewBox="-8.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <title>arrow-top-right</title>
+                        <path d="M14.56 9.6c0-0.64-0.44-0.92-0.88-0.92v0h-9.64c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h7.68l-11.48 11.52c-0.32 0.32-0.32 0.84 0 1.2 0.16 0.16 0.4 0.24 0.6 0.24s0.44-0.080 0.6-0.24l11.44-11.44v7.68c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-9.72z"></path>
+                    </g>
+                </svg>
+            </a>
+
             <div class="h-10 flex items-center  bg-white bg-opacity-90 gap-2 p-2">
-              <div class="h-8 w-8  bg-[url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center"></div>
-              <p class="text-black text-xs font-bold px-1">John Mccan</p>
+            <div class="h-8 w-8 bg-cover bg-center" style="background-image: url('{{ asset('storage/' . $blog->user->image_url) }}')"></div>
+              <p class="text-black text-xs font-bold px-1">{{$blog->user->name}}</p>
             </div>
           </div>
         </div>
       </div>
+      @endforeach
       <!-- CARD END -->
-      <!-- CARD START -->
-      <div class="relative h-80 rounded-xl bg-[url('https://images.unsplash.com/photo-1713439242060-1bb7de4214ac?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
-        <div class="absolute flex h-full w-full flex-col justify-end gap-1 rounded-xl bg-neutral-800 bg-opacity-50 p-4">
-          <p class="text-sm font-black text-white border-black pl-1">23 March 2021</p>
-          <h1 class="text-5xl font-black text-white mb-8">Lorem Ipsum Dolor Sit Amut</h1>
-          <div class="flex items-center gap-6">
-            <button class="flex items-center h-10 gap-1  border-2 px-5 py-2 text-xs font-black text-white">
-              <span>Read More</span>
-              <svg class="w-4" fill="#ffff" viewBox="-8.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                  <title>arrow-top-right</title>
-                  <path d="M14.56 9.6c0-0.64-0.44-0.92-0.88-0.92v0h-9.64c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h7.68l-11.48 11.52c-0.32 0.32-0.32 0.84 0 1.2 0.16 0.16 0.4 0.24 0.6 0.24s0.44-0.080 0.6-0.24l11.44-11.44v7.68c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-9.72z"></path>
-                </g>
-              </svg>
-            </button>
-            <div class="h-10 flex items-center  bg-white bg-opacity-90 gap-2 p-2">
-              <div class="h-8 w-8  bg-[url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center"></div>
-              <p class="text-black text-xs font-bold px-1">John Mccan</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- CARD END -->
-      <!-- CARD START -->
-      <div class="relative h-80 rounded-xl bg-[url('https://images.unsplash.com/photo-1713439242060-1bb7de4214ac?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
-        <div class="absolute flex h-full w-full flex-col justify-end gap-1 rounded-xl bg-neutral-800 bg-opacity-50 p-4">
-          <p class="text-sm font-black text-white border-black pl-1">23 March 2021</p>
-          <h1 class="text-5xl font-black text-white mb-8">Lorem Ipsum Dolor Sit Amut</h1>
-          <div class="flex items-center gap-6">
-            <button class="flex items-center h-10 gap-1  border-2 px-5 py-2 text-xs font-black text-white">
-              <span>Read More</span>
-              <svg class="w-4" fill="#ffff" viewBox="-8.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                  <title>arrow-top-right</title>
-                  <path d="M14.56 9.6c0-0.64-0.44-0.92-0.88-0.92v0h-9.64c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h7.68l-11.48 11.52c-0.32 0.32-0.32 0.84 0 1.2 0.16 0.16 0.4 0.24 0.6 0.24s0.44-0.080 0.6-0.24l11.44-11.44v7.68c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-9.72z"></path>
-                </g>
-              </svg>
-            </button>
-            <div class="h-10 flex items-center  bg-white bg-opacity-90 gap-2 p-2">
-              <div class="h-8 w-8  bg-[url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center"></div>
-              <p class="text-black text-xs font-bold px-1">John Mccan</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- CARD END -->
-      <!-- CARD START -->
-      <div class="relative h-80 rounded-xl bg-[url('https://images.unsplash.com/photo-1713439242060-1bb7de4214ac?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
-        <div class="absolute flex h-full w-full flex-col justify-end gap-1 rounded-xl bg-neutral-800 bg-opacity-50 p-4">
-          <p class="text-sm font-black text-white border-black pl-1">23 March 2021</p>
-          <h1 class="text-5xl font-black text-white mb-8">Lorem Ipsum Dolor Sit Amut</h1>
-          <div class="flex items-center gap-6">
-            <button class="flex items-center h-10 gap-1  border-2 px-5 py-2 text-xs font-black text-white">
-              <span>Read More</span>
-              <svg class="w-4" fill="#ffff" viewBox="-8.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                  <title>arrow-top-right</title>
-                  <path d="M14.56 9.6c0-0.64-0.44-0.92-0.88-0.92v0h-9.64c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h7.68l-11.48 11.52c-0.32 0.32-0.32 0.84 0 1.2 0.16 0.16 0.4 0.24 0.6 0.24s0.44-0.080 0.6-0.24l11.44-11.44v7.68c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-9.72z"></path>
-                </g>
-              </svg>
-            </button>
-            <div class="h-10 flex items-center  bg-white bg-opacity-90 gap-2 p-2">
-              <div class="h-8 w-8  bg-[url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center"></div>
-              <p class="text-black text-xs font-bold px-1">John Mccan</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- CARD END -->
-       <!-- CARD START -->
-       <div class="relative h-80 rounded-xl bg-[url('https://images.unsplash.com/photo-1713439242060-1bb7de4214ac?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
-        <div class="absolute flex h-full w-full flex-col justify-end gap-1 rounded-xl bg-neutral-800 bg-opacity-50 p-4">
-          <p class="text-sm font-black text-white border-black pl-1">23 March 2021</p>
-          <h1 class="text-5xl font-black text-white mb-8">Lorem Ipsum Dolor Sit Amut</h1>
-          <div class="flex items-center gap-6">
-            <button class="flex items-center h-10 gap-1  border-2 px-5 py-2 text-xs font-black text-white">
-              <span>Read More</span>
-              <svg class="w-4" fill="#ffff" viewBox="-8.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                  <title>arrow-top-right</title>
-                  <path d="M14.56 9.6c0-0.64-0.44-0.92-0.88-0.92v0h-9.64c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h7.68l-11.48 11.52c-0.32 0.32-0.32 0.84 0 1.2 0.16 0.16 0.4 0.24 0.6 0.24s0.44-0.080 0.6-0.24l11.44-11.44v7.68c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-9.72z"></path>
-                </g>
-              </svg>
-            </button>
-            <div class="h-10 flex items-center  bg-white bg-opacity-90 gap-2 p-2">
-              <div class="h-8 w-8  bg-[url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center"></div>
-              <p class="text-black text-xs font-bold px-1">John Mccan</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- CARD END -->
-       <!-- CARD START -->
-       <div class="relative h-80 rounded-xl bg-[url('https://images.unsplash.com/photo-1713439242060-1bb7de4214ac?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
-        <div class="absolute flex h-full w-full flex-col justify-end gap-1 rounded-xl bg-neutral-800 bg-opacity-50 p-4">
-          <p class="text-sm font-black text-white border-black pl-1">23 March 2021</p>
-          <h1 class="text-5xl font-black text-white mb-8">Lorem Ipsum Dolor Sit Amut</h1>
-          <div class="flex items-center gap-6">
-            <button class="flex items-center h-10 gap-1  border-2 px-5 py-2 text-xs font-black text-white">
-              <span>Read More</span>
-              <svg class="w-4" fill="#ffff" viewBox="-8.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                  <title>arrow-top-right</title>
-                  <path d="M14.56 9.6c0-0.64-0.44-0.92-0.88-0.92v0h-9.64c-0.48 0-0.84 0.36-0.84 0.84s0.36 0.84 0.84 0.84h7.68l-11.48 11.52c-0.32 0.32-0.32 0.84 0 1.2 0.16 0.16 0.4 0.24 0.6 0.24s0.44-0.080 0.6-0.24l11.44-11.44v7.68c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-9.72z"></path>
-                </g>
-              </svg>
-            </button>
-            <div class="h-10 flex items-center  bg-white bg-opacity-90 gap-2 p-2">
-              <div class="h-8 w-8  bg-[url('https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center"></div>
-              <p class="text-black text-xs font-bold px-1">John Mccan</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- CARD END -->
+
     </div>
 </div>
 <!--END Blog Section -->
-  </div>
 
 </section>
 <footer class="mt-20 xl:mt-32 mx-auto w-full relative text-center  bg-[#094839] text-white">

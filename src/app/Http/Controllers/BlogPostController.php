@@ -15,10 +15,15 @@ class BlogPostController extends Controller
     }
 
     public function show(BlogPost $blog) {
+        $blog = $blog->load('user', 'comments.user', 'likes');
+
         $user = auth()->user();
-        $blog = $blog->with('user', 'comments.user', 'likes')->first();
-        $likeExists = $user->likes()->where('blog_post_id', $blog->id)->first();
-        // dd($likeExists);
+        $likeExists = null;
+        if($user){
+            $likeExists = $user->likes()->where('blog_post_id', $blog->id)->first();
+            // dd($likeExists);
+        }
+
         return view('blog.details', compact('blog', 'likeExists'));
     }
 

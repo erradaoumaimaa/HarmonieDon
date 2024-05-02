@@ -45,6 +45,8 @@ Route::get('logout', [SessionController::class, 'destroy'])->name('logout');
 /** Admin */
 Route::middleware('can:admin')->group(function() {
     Route::get('admins', [AdminController::class, 'index'])->name('admins.index');
+    Route::get('admin/profile', [AdminController::class, 'profile'])->name('admin.profile');
+    Route::put('user/{user}/ban', [UserController::class, 'ban'])->name('user.ban');
 
 
 });
@@ -71,21 +73,26 @@ Route::middleware('can:donor')->group(function() {
 /** association */
 Route::middleware('can:association')->group(function() {
     Route::get('association', [AssociationController::class, 'index'])->name('association.index');
+    Route::get('association/profile', [AssociationController::class, 'profile'])->name('association.profile');
     /** Create a blog  */
     Route::get('association/create',[BlogPostController::class, 'create'])->name('blogs.create');
     Route::post('association/store',[BlogPostController::class, 'store'])->name('blogs.store');
+    Route::get('association/blogs',[BlogPostController::class, 'create'])->name('blogs.manage');
 
 
 });
 /** user */
 Route::middleware('can:user')->group(function() {
     Route::get('users', [UserController::class, 'index'])->name('users.index');
+    Route::get('user/profile', [UserController::class, 'profile'])->name('users.profile');
     Route::post('donation/{donation}/apply', [ReservationController::class, 'apply'])->name('donation.apply');
+    Route::get('users/explore',[UserController::class, 'explore'])->name('users.explore');
 
 });
 
 Route::post('/{user}/follow', [UserController::class, 'follow'])->name('user.follow')->middleware('auth');
-Route::get('/notifications/count/{user}', [UserController::class, 'notifCount'])->name('user.notifications');
+Route::get('/notifications/count/{user}', [UserController::class, 'notifCount'])->name('user.notifications.count');
+Route::get('/notifications/{user}', [UserController::class, 'notifs'])->name('user.notifications');
 
 /** comment */
 Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store')->middleware('auth');

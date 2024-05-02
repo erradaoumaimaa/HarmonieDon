@@ -1,5 +1,5 @@
 @include('master.header')
-<p id='user-id' class='hidden'>{{ auth()->user()->id }}</p>
+<p id='user-id' class='hidden'>{{ auth()->user() ? auth()->user()->id : null }}</p>
 <nav
   class="block w-full max-w-screen-full px-4 py-2 mx-auto text-white bg-[#094839] border-b-4 border-[#E44A19]  backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4">
   <div class="container flex items-center justify-between mx-auto ">
@@ -51,14 +51,14 @@
 
 			      </li>
                    <!--list of donation link-->
-<li class="flex items-center p-1 font-sans text-sm antialiased font-semibold leading-normal gap-x-2 {{ request()->routeIs('donors.donations') ? 'text-[#E44A19]' : '' }}">
-  <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="{{ request()->routeIs('donors.donations') ? 'text-[#E44A19]' : 'text-white' }}">
-    <path d="M2 0.5C1.46957 0.5 0.960859 0.710714 0.585786 1.08579C0.210714 1.46086 0 1.96957 0 2.5V4.5C0 5.03043 0.210714 5.53914 0.585786 5.91421C0.960859 6.28929 1.46957 6.5 2 6.5H4C4.53043 6.5 5.03914 6.28929 5.41421 5.91421C5.78929 5.53914 6 5.03043 6 4.5V2.5C6 1.96957 5.78929 1.46086 5.41421 1.08579C5.03914 0.710714 4.53043 0.5 4 0.5H2ZM2 8.5C1.46957 8.5 0.960859 8.71071 0.585786 9.08579C0.210714 9.46086 0 9.96957 0 10.5V12.5C0 13.0304 0.210714 13.5391 0.585786 13.9142C0.960859 14.2893 1.46957 14.5 2 14.5H4C4.53043 14.5 5.03914 14.2893 5.41421 13.9142C5.78929 13.5391 6 13.0304 6 12.5V10.5C6 9.96957 5.78929 9.46086 5.41421 9.08579C5.03914 8.71071 4.53043 8.5 4 8.5H2ZM8 2.5C8 1.96957 8.21071 1.46086 8.58579 1.08579C8.96086 0.710714 9.46957 0.5 10 0.5H12C12.5304 0.5 13.0391 0.710714 13.4142 1.08579C13.7893 1.46086 14 1.96957 14 2.5V4.5C14 5.03043 13.7893 5.53914 13.4142 5.91421C13.0391 6.28929 12.5304 6.5 12 6.5H10C9.46957 6.5 8.96086 6.28929 8.58579 5.91421C8.21071 5.53914 8 5.03043 8 4.5V2.5ZM8 10.5C8 9.96957 8.21071 9.46086 8.58579 9.08579C8.96086 8.71071 9.46957 8.5 10 8.5H12C12.5304 8.5 13.0391 8.71071 13.4142 9.08579C13.7893 9.46086 14 9.96957 14 10.5V12.5C14 13.0304 13.7893 13.5391 13.4142 13.9142C13.0391 14.2893 12.5304 14.5 12 14.5H10C9.46957 14.5 8.96086 14.2893 8.58579 13.9142C8.21071 13.5391 8 13.0304 8 12.5V10.5Z" fill="currentColor"/>
-  </svg>
-  <a href="{{ route('donors.donations') }}" class="flex items-center {{ request()->routeIs('donors.donations') ? 'text-[#E44A19]' : 'text-white' }}">
-    Donations
-  </a>
-</li>
+        <li class="flex items-center p-1 font-sans text-sm antialiased font-semibold leading-normal gap-x-2 {{ request()->routeIs('donors.donations') ? 'text-[#E44A19]' : '' }}">
+        <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="{{ request()->routeIs('donors.donations') ? 'text-[#E44A19]' : 'text-white' }}">
+            <path d="M2 0.5C1.46957 0.5 0.960859 0.710714 0.585786 1.08579C0.210714 1.46086 0 1.96957 0 2.5V4.5C0 5.03043 0.210714 5.53914 0.585786 5.91421C0.960859 6.28929 1.46957 6.5 2 6.5H4C4.53043 6.5 5.03914 6.28929 5.41421 5.91421C5.78929 5.53914 6 5.03043 6 4.5V2.5C6 1.96957 5.78929 1.46086 5.41421 1.08579C5.03914 0.710714 4.53043 0.5 4 0.5H2ZM2 8.5C1.46957 8.5 0.960859 8.71071 0.585786 9.08579C0.210714 9.46086 0 9.96957 0 10.5V12.5C0 13.0304 0.210714 13.5391 0.585786 13.9142C0.960859 14.2893 1.46957 14.5 2 14.5H4C4.53043 14.5 5.03914 14.2893 5.41421 13.9142C5.78929 13.5391 6 13.0304 6 12.5V10.5C6 9.96957 5.78929 9.46086 5.41421 9.08579C5.03914 8.71071 4.53043 8.5 4 8.5H2ZM8 2.5C8 1.96957 8.21071 1.46086 8.58579 1.08579C8.96086 0.710714 9.46957 0.5 10 0.5H12C12.5304 0.5 13.0391 0.710714 13.4142 1.08579C13.7893 1.46086 14 1.96957 14 2.5V4.5C14 5.03043 13.7893 5.53914 13.4142 5.91421C13.0391 6.28929 12.5304 6.5 12 6.5H10C9.46957 6.5 8.96086 6.28929 8.58579 5.91421C8.21071 5.53914 8 5.03043 8 4.5V2.5ZM8 10.5C8 9.96957 8.21071 9.46086 8.58579 9.08579C8.96086 8.71071 9.46957 8.5 10 8.5H12C12.5304 8.5 13.0391 8.71071 13.4142 9.08579C13.7893 9.46086 14 9.96957 14 10.5V12.5C14 13.0304 13.7893 13.5391 13.4142 13.9142C13.0391 14.2893 12.5304 14.5 12 14.5H10C9.46957 14.5 8.96086 14.2893 8.58579 13.9142C8.21071 13.5391 8 13.0304 8 12.5V10.5Z" fill="currentColor"/>
+        </svg>
+        <a href="{{ route('donors.donations') }}" class="flex items-center {{ request()->routeIs('donors.donations') ? 'text-[#E44A19]' : 'text-white' }}">
+            Donations
+        </a>
+        </li>
 
 
  <!--Fil-->
@@ -87,22 +87,30 @@ xmlns="http://www.w3.org/2000/svg" width="14"  height="15"  viewBox="0 0 24 24" 
 
 </li>
  <!--Notification link-->
-        <li
-          class="relative">
-          <button class="flex items-center p-1 font-sans text-sm antialiased font-semibold leading-normal gap-x-2 " onclick="showNotifs()">
-            <div class="relative w-5 h-5">
-                <svg class="text-white w-full h-full" xmlns="http://www.w3.org/2000/svg" width="24"  height="24"   viewBox="0 0 24 24"  stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />  <path d="M9 17v1a3 3 0 0 0 6 0v-1" /></svg>
-                <div id='notif-count' class="absolute top-0 right-0 translate-x-[50%] translate-y-[-50%] w-3 h-3 bg-[#D00000] text-[8px] text-white rounded-full">{{ auth()->user()->notifications()->count() }}</div>
-            </div>
-            <p class="flex items-center text-white">
-                Notifications
-            </p>
-          </button>
+ <li class="relative">
+    <button class="flex items-center p-1 font-sans text-sm antialiased font-semibold leading-normal gap-x-2" onclick="showNotifs()">
+        <div class="relative w-5 h-5">
+            <svg class="text-white w-full h-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z"/>
+                <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
+                <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+            </svg>
+            <div id='notif-count' class="absolute top-0 right-0 translate-x-[50%] -translate-y-1/2 w-3 h-3 bg-[#D00000] text-[8px] text-white rounded-full">{{ auth()->user() ? auth()->user()->notifications()->count() : '0' }}</div>
+        </div>
+        <p class="flex items-center text-white">
+            Notifications
+        </p>
+    </button>
 
-          <div class="absolute top-[100%] rounded left-0 w-full bg-[#dedded]">
-                
-            </div>
-        </li>
+    <div id='notifs-menu' class="absolute top-[calc(100% + 10px)] rounded p-2 w-64 bg-[#d97654] shadow-md hidden">
+        @if(auth()->user())
+            @foreach(auth()->user()->notifications()->limit(5)->get() as $n)
+                <p class="w-full text-sm text-black py-1 px-2">{{ $n->data['beneficiary'] . ' has applied for ' . $n->data['donation']}}</p>
+            @endforeach
+        @endif
+    </div>
+</li>
+
 
 
 
@@ -146,23 +154,15 @@ xmlns="http://www.w3.org/2000/svg" width="14"  height="15"  viewBox="0 0 24 24" 
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/laravel-echo@1.11.2/dist/echo.iife.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+<script>
+    function showNotifs() {
+        const menu = document.getElementById('notifs-menu');
+        menu.classList.toggle('hidden');
+    }
+</script>
     <!-- Initialize Laravel Echo -->
     <script>
-        // Initialize Laravel Echo with Pusher
-        // window.Echo = new Echo({
-        //     broadcaster: 'pusher',
-        //     key: 'YOUR_PUSHER_APP_KEY',
-        //     cluster: 'YOUR_PUSHER_APP_CLUSTER',
-        //     encrypted: true, // If your Pusher setup uses encryption
-        // });
 
-        // // Subscribe to a private channel and listen for events
-        // window.Echo.private('App.Models.User.45')
-        //     .listen('App\\Notifications\\NewReservation', (data) => {
-        //         console.log('New reservation notification received:', data);
-        //         // Handle the notification data as needed
-        //     });
 
         // window.Pusher = require('pusher-js');
         window.Echo = new Echo({
@@ -172,12 +172,30 @@ xmlns="http://www.w3.org/2000/svg" width="14"  height="15"  viewBox="0 0 24 24" 
             forceTLS: true
         });
 
+        const fetchNotifications = async (id) => {
+            // console.log(id);
+
+            try {
+                const response = await axios.get(`http://127.0.0.1:8000/notifications/${id}`); // Assuming you have an API endpoint to fetch the notification count
+                const notifications = response.data.notifs; // Assuming the API returns the count as 'count'
+                let html = ''
+                notifications.forEach(element => {
+                    html += `<p class="w-full text-sm text-black">${element.data.beneficiary}</p>`
+                });
+
+                // console.log(html)
+                document.getElementById('notifs-menu').innerHTML = html;
+            } catch (error) {
+                console.error('Error fetching notifications:', error);
+            }
+        }
+
         const fetchNotificationCount = async (id) => {
             // console.log(id);
 
             try {
-                const response = await axios.get(`http://127.0.0.1:8000/notifications/count/${id}`); // Assuming you have an API endpoint to fetch the notification count
-                const notificationCount = response.data.count; // Assuming the API returns the count as 'count'
+                const response = await axios.get(`http://127.0.0.1:8000/notifications/count/${id}`);
+                const notificationCount = response.data.count;
                 document.getElementById('notif-count').textContent = notificationCount;
             } catch (error) {
                 console.error('Error fetching notification count:', error);
@@ -192,6 +210,7 @@ xmlns="http://www.w3.org/2000/svg" width="14"  height="15"  viewBox="0 0 24 24" 
             console.log('Notification received:', notification);
             // console.log(id)
             fetchNotificationCount(id)
+            fetchNotifications(id)
 
 
             // document.getElementById('notif-count').innerText =

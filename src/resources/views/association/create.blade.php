@@ -1,5 +1,5 @@
 <!--Nav  -->
-@include('master.navAssociation')
+@include('master.nav')
 <div class="lg:flex gap-8 items-start px-16 justify-center pt-16 bg-[#FBF6F4]">
     <div class="hidden lg:block w-[40%]">
         <aside class="px-8 py-6 mt-12">
